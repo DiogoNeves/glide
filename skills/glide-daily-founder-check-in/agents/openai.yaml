@@ -1,0 +1,4 @@
+interface:
+  display_name: "Daily Founder Check In"
+  short_description: "Founder operating workflow"
+  default_prompt: "Use $glide-daily-founder-check-in for this founder/CEO workflow."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Decision Packet"
+  short_description: "Founder operating workflow"
+  default_prompt: "Use $glide-create-decision-packet for this founder/CEO workflow."

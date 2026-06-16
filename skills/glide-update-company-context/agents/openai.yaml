@@ -1,0 +1,4 @@
+interface:
+  display_name: "Update Company Context"
+  short_description: "Founder operating workflow"
+  default_prompt: "Use $glide-update-company-context for this founder/CEO workflow."

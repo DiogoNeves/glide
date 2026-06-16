@@ -1,0 +1,4 @@
+interface:
+  display_name: "Founder Drift Review"
+  short_description: "Founder operating workflow"
+  default_prompt: "Use $glide-founder-drift-review for this founder/CEO workflow."

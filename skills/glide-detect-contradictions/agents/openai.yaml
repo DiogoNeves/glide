@@ -1,0 +1,4 @@
+interface:
+  display_name: "Detect Contradictions"
+  short_description: "Founder operating workflow"
+  default_prompt: "Use $glide-detect-contradictions for this founder/CEO workflow."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Run Area Review"
+  short_description: "Founder operating workflow"
+  default_prompt: "Use $glide-run-area-review for this founder/CEO workflow."

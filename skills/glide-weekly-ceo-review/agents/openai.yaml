@@ -1,0 +1,4 @@
+interface:
+  display_name: "Weekly Ceo Review"
+  short_description: "Founder operating workflow"
+  default_prompt: "Use $glide-weekly-ceo-review for this founder/CEO workflow."

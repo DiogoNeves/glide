@@ -1,0 +1,12 @@
+{
+  "name": "glide",
+  "description": "Founder and CEO operating workflows for AI agents using Markdown context",
+  "version": "0.1.0",
+  "author": {
+    "name": "Glide contributors"
+  },
+  "homepage": "https://github.com/DiogoNeves/glide",
+  "repository": "https://github.com/DiogoNeves/glide",
+  "license": "MIT",
+  "skills": "./skills"
+}

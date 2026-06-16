@@ -1,0 +1,4 @@
+interface:
+  display_name: "Deep Research Subject"
+  short_description: "Founder operating workflow"
+  default_prompt: "Use $glide-deep-research-subject for this founder/CEO workflow."

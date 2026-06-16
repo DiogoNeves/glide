@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Area"
+  short_description: "Founder operating workflow"
+  default_prompt: "Use $glide-create-area for this founder/CEO workflow."
