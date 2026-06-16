@@ -13,7 +13,9 @@ The installer should:
 5. Ask focused questions to correct or fill the company context.
 6. Copy `Glide HQ/` and selected skills only after confirmation.
 7. Create or update the root harness instruction file.
-8. Offer starter automations after explicit confirmation.
+8. Inspect available harness connectors and record what is actually connected.
+9. Initialize git if the workspace is not already a repository.
+10. Offer starter automations after explicit confirmation.
 
 Glide defines behavior. The harness decides where computation happens and what data is sent.
 
@@ -35,8 +37,9 @@ Inspect only. Check for:
 - `.claude/skills/`
 - `AGENTS.md`
 - `CLAUDE.md`
+- `.git/`
 - existing company docs, README files, product docs, strategy notes, customer notes, investor updates, pitch decks, metrics docs, and decision records
-- configured connector docs or automation notes
+- configured connector docs, active connector/tool lists, MCP/app tools, or automation notes
 
 Summarize what exists and what Glide would need to create or update.
 
@@ -80,6 +83,9 @@ After confirmation:
 2. Copy selected `skills/glide-*` folders into the harness skill directory.
 3. Create or update the root harness instruction file with the relevant adapter snippet.
 4. Record installed skills and proposed automations in `Glide HQ/Automation Registry.md`.
+5. Create or update `Glide HQ/Connector Inventory.md` from the connectors actually visible to the harness.
+6. If the workspace is not already a git repository, run `git init` after confirmation.
+7. Add the Glide root instruction section telling agents to keep useful content and harness updates committed with very short commit messages.
 
 ## Step 5: Offer Starter Automations
 
@@ -92,8 +98,25 @@ Offer only:
 
 Confirm before enabling any automation. If the harness does not support automations, keep the prompts as proposed manual automations in `Glide HQ/Automations/`.
 
-## Step 6: Connectors
+## Step 6: Git Hygiene
 
-Assume Codex or Claude Code may already have useful connectors. Do not install or enable connectors automatically.
+If the workspace has no git repository, initialize one after installation confirmation.
 
-When a connector exists, use it for read/fetch workflows when the user has granted access. For write or external-state changes, draft the action and ask for approval first.
+Root harness instructions should say:
+
+- Keep meaningful Glide content, context, checklist, skill, automation, and harness updates committed.
+- Use very brief commit messages, such as `Update company context`, `Add GTM question`, `Refresh follow-through`, or `Tighten harness rules`.
+- Do not commit secrets, credentials, private exports, raw transcripts, or connector data dumps.
+- Do not push unless the user or workspace policy says to push.
+
+## Step 7: Connector Inventory
+
+Assume Codex or Claude Code may already have useful connectors, but do not rely on a static registry.
+
+During setup:
+
+1. Inspect the harness-provided tools, MCP servers, apps, plugins, or connector list.
+2. Record only what is actually connected in `Glide HQ/Connector Inventory.md`.
+3. Ask the user before installing or enabling anything new.
+4. Use available connectors for read/fetch workflows when access is granted.
+5. For write or external-state changes, draft the action and ask for approval first.

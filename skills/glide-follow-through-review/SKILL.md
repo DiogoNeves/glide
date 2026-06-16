@@ -8,6 +8,7 @@ description: Review promises, waiting threads, commitments, and important loops 
 ## Load
 
 - `Glide HQ/AGENTS.md`
+- `Glide HQ/Connector Inventory.md`
 - `Glide HQ/Follow-Through Ledger.md`
 - `Glide HQ/Open Loops.md`
 - Relevant area files

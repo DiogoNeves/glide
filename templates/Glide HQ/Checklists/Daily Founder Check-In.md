@@ -7,6 +7,7 @@ Purpose: run a concise daily pass that improves company context, surfaces one us
 - `Glide HQ/AGENTS.md`
 - `Company Context.md`
 - `Founder Brief.md`
+- `Connector Inventory.md`
 - `Follow-Through Ledger.md`
 - `Decision Log.md`
 - `Questions Queue.md`

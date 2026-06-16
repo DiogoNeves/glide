@@ -4,6 +4,18 @@ Notable changes to Glide.
 
 ## 2026-06-16
 
+### Switched To Install-Time Connector Inventory
+
+- Replaced the static connector registry with `Glide HQ/Connector Inventory.md`.
+- Updated installer guidance to inspect the harness's actual connected tools during setup.
+- Kept the approval boundary: read/fetch when access is granted; ask before external changes.
+
+### Added Git Hygiene To Installation
+
+- Updated installation to initialize git when the workspace has no repository.
+- Added root instruction guidance to keep meaningful Glide content and harness updates committed with very brief commit messages.
+- Clarified not to commit secrets, raw exports, transcripts, or connector dumps.
+
 ### Initial Founder/CEO Version
 
 - Created Glide as a Markdown-first founder/CEO operating system.

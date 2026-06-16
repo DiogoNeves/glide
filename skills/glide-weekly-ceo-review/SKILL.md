@@ -10,6 +10,7 @@ description: Run a weekly CEO review. Use when reviewing company progress, metri
 - `Glide HQ/AGENTS.md`
 - `Glide HQ/Company Context.md`
 - `Glide HQ/Founder Brief.md`
+- `Glide HQ/Connector Inventory.md`
 - `Glide HQ/Checklists/Weekly CEO Review.md`
 - `Glide HQ/Follow-Through Ledger.md`
 - `Glide HQ/Decision Log.md`

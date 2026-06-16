@@ -6,3 +6,4 @@
 - Keep Glide memory and working files in `Glide HQ/`.
 - Reading and fetching through configured connectors is allowed.
 - Ask before posting, sending, publishing, scheduling, purchasing, approving, deleting, changing external systems, or making commitments.
+- Keep meaningful Glide content and harness updates committed with very brief commit messages; do not push unless asked or configured.

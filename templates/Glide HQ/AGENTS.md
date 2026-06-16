@@ -9,6 +9,7 @@ Glide helps founders and CEOs operate with better company defaults: clearer cont
 - These instructions apply to everything inside `Glide HQ/`.
 - Keep Glide memory, operating files, checklists, decisions, research, and reviews in `Glide HQ/`.
 - Read company files, repos, docs, and configured connectors as needed for context.
+- Use `Connector Inventory.md` to understand what the current harness can access.
 - Do not edit outside `Glide HQ/` unless the user explicitly asks.
 - Use installed `glide-*` skills for repeatable workflows.
 
@@ -23,11 +24,19 @@ Glide helps founders and CEOs operate with better company defaults: clearer cont
 - Draft high-stakes actions for human approval.
 - Call out contradictions plainly and constructively.
 
+## Git Hygiene
+
+- Keep meaningful Glide content, context, checklist, skill, automation, and harness updates committed.
+- Use very brief commit messages.
+- Do not commit secrets, credentials, private exports, raw transcripts, or connector data dumps.
+- Do not push unless the user or workspace policy says to push.
+
 ## Useful Starting Points
 
 - `Company Context.md`: company, product, market, customers, business model, metrics, strategy, risks, and open questions.
 - `Founder Brief.md`: founder preferences, constraints, working style, risk appetite, and approval boundaries.
 - `Follow-Through Ledger.md`: promises, waiting threads, and commitments that should not disappear.
+- `Connector Inventory.md`: connectors actually available in this harness and their approval boundaries.
 - `Decision Log.md`: important decisions and their reasoning.
 - `Questions Queue.md`: missing context that would improve future recommendations.
 - `Contradiction Register.md`: tensions between stated strategy, behavior, constraints, and evidence.

@@ -10,6 +10,7 @@ Start with:
 - `Harness Design Principles.md` for protected principles.
 - `Company Context.md` for durable company context.
 - `Founder Brief.md` for founder preferences and approval boundaries.
+- `Connector Inventory.md` for the tools actually connected to the harness.
 - `Follow-Through Ledger.md` for commitments and waiting threads.
 - `Areas/` for company domains.
 - `Checklists/` for repeatable workflows.

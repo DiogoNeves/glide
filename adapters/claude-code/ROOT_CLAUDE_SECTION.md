@@ -7,4 +7,5 @@
 - Do not edit outside `Glide HQ/` or the Glide skill folder unless the user explicitly asks.
 - Reading and fetching information through configured connectors is allowed.
 - Ask before posting, sending, publishing, scheduling, purchasing, approving, deleting, changing external systems, or making commitments.
+- Keep meaningful Glide content and harness updates committed with very brief commit messages; do not push unless asked or configured.
 - Use installed `glide-*` skills when relevant.

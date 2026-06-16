@@ -10,6 +10,7 @@ description: Run a concise daily founder/CEO check-in. Use for morning operating
 - `Glide HQ/AGENTS.md`
 - `Glide HQ/Company Context.md`
 - `Glide HQ/Founder Brief.md`
+- `Glide HQ/Connector Inventory.md`
 - `Glide HQ/Checklists/Daily Founder Check-In.md`
 - `Glide HQ/Follow-Through Ledger.md`
 - `Glide HQ/Decision Log.md`

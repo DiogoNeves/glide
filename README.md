@@ -26,7 +26,7 @@ Glide loads the company context, GTM area, customer notes, active goals, decisio
 - Areas cover Strategy, Customers, Product, GTM, Sales, Marketing, Finance, Fundraising, Hiring, Operations, and Board & Investors.
 - Skills and checklists encode repeatable founder/CEO workflows.
 - Automations are optional prompts for daily, weekly, follow-through, and drift reviews.
-- Connectors are assumed to live in the user's harness; Glide only describes how to use them safely.
+- Connectors are discovered from the user's harness during setup; Glide records what is actually available and how it may be used safely.
 
 Glide keeps its internal memory and working structure in `Glide HQ/`. It can read company docs, repos, tools, and external sources when allowed, but it should not modify external systems without explicit approval.
 
@@ -36,7 +36,6 @@ Glide keeps its internal memory and working structure in `Glide HQ/`. It can rea
 - `skills/`: portable Agent Skills prefixed with `glide-`.
 - `automations/`: starter automation prompts.
 - `adapters/`: Codex, Claude Code, and generic harness snippets.
-- `tools/REGISTRY.md`: connector categories and safe-use guidance.
 - `docs/`: concept, privacy, harness, and release checks.
 - `examples/`: short examples for common founder workflows.
 
