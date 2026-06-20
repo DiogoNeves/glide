@@ -2,7 +2,18 @@
 
 Notable changes to Glide.
 
+## 2026-06-20
+
+### Capped Daily Founder Output
+
+- Updated daily founder check-ins to prefer one item, allow up to three only when each is urgent or very important, and ask before continuing when more may matter.
+
 ## 2026-06-16
+
+### Added First-Week Daily Calibration
+
+- Updated daily founder check-ins to ask occasional lightweight calibration questions during the first week of usage.
+- Added guidance to capture durable preferences about signal, noise, timing, tone, length, context, and action level.
 
 ### Switched To Install-Time Connector Inventory
 

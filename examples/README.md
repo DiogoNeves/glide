@@ -4,7 +4,7 @@ Short examples of Glide workflows.
 
 ## Daily Founder Check-In
 
-The agent reads `Company Context.md`, `Founder Brief.md`, area reminders, questions, open decisions, and `Follow-Through Ledger.md`, then surfaces one useful question, risk, opportunity, or small action.
+The agent reads `Company Context.md`, `Founder Brief.md`, area reminders, questions, open decisions, and `Follow-Through Ledger.md`, then surfaces one useful question, risk, opportunity, or small action. It only adds a second or third item when each one is urgent or very important.
 
 ## GTM Review
 
