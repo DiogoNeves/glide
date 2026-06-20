@@ -25,9 +25,11 @@ description: Run a concise daily founder/CEO check-in. Use for morning operating
 2. Scan priorities, follow-through, decisions, questions, contradictions, and relevant area files.
 3. Fetch from configured connectors only when it may reveal important signal.
 4. Choose the smallest useful output: prefer one item; use two or three only when each is genuinely urgent or very important.
-5. During the first week of usage, occasionally ask one light calibration question about the daily update's signal, noise, timing, tone, length, missing context, or preferred action level.
-6. Draft external actions only for approval.
-7. Update Glide HQ as the conversation progresses, including durable calibration preferences.
+5. When signals compete, rank candidates by concrete deadline, date, amount, company or founder stakes, source reliability, and whether the founder can usefully act today.
+6. When email, calendar, Things, Messages, CRM, or app data disagree, prefer the source of record, confirmation email, or official app over auto-created calendar or task artifacts, and mention the caveat briefly.
+7. During the first week of usage, occasionally ask one light calibration question about the daily update's signal, noise, timing, tone, length, missing context, or preferred action level.
+8. Draft external actions only for approval.
+9. Update Glide HQ as the conversation progresses, including durable calibration preferences.
 
 ## Output
 

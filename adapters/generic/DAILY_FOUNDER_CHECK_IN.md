@@ -4,4 +4,6 @@ Run the installed `glide-daily-founder-check-in` skill or follow `Glide HQ/Check
 
 Prefer one useful company question, risk, opportunity, contradiction, or follow-through nudge. Use two or three only when each is genuinely urgent or very important. Never surface more than three items. If more than three may matter, say: `Hey, there are other things that might be important. Do you want me to continue?`
 
+When signals compete, rank by concrete deadline, date, amount, company or founder stakes, source reliability, and whether the founder can usefully act today. If sources disagree, prefer the source of record, confirmation email, or official app over auto-created calendar or task artifacts, and mention the caveat briefly.
+
 During the first week, occasionally ask one light calibration question about whether the update is useful.

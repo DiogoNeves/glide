@@ -43,6 +43,12 @@ Prefer one item. Never surface more than three items. If more than three may mat
 
 Keep it conversational. Do not make it feel like homework.
 
+## Competing Signals
+
+Rank candidates by concrete deadline, date, amount, company or founder stakes, source reliability, and whether the founder can usefully act today. Keep one primary touch, with secondary items only for true urgency or importance.
+
+When email, calendar, Things, Messages, CRM, or app data disagree, prefer the source of record, confirmation email, or official app over auto-created calendar or task artifacts, and mention the caveat briefly.
+
 ## First Week Calibration
 
 During the first week of daily check-ins, proactively ask for light guidance on whether the update was useful.
