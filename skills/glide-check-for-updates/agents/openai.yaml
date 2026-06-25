@@ -1,0 +1,4 @@
+interface:
+  display_name: "Check For Glide Updates"
+  short_description: "Check upstream Glide releases"
+  default_prompt: "Use $glide-check-for-updates for this Glide workspace."

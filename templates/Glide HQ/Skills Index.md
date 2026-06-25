@@ -14,3 +14,4 @@ Installed Glide skills.
 - `glide-founder-drift-review`: keep Glide operations aligned with design principles.
 - `glide-create-area`: create a new company area.
 - `glide-nightly-founder-research-review`: run quiet 4am research, memory, eval, and cross-area maintenance.
+- `glide-check-for-updates`: check upstream Glide releases and apply compatible migration notes.

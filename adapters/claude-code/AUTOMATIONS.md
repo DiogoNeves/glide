@@ -7,5 +7,6 @@ Starter automation prompts:
 - `automations/follow-through-review.md`
 - `automations/founder-drift-review.md`
 - `automations/nightly-founder-research-review.md`
+- `automations/weekly-glide-update-check.md`
 
 If recurring automation is unavailable, keep these as manual prompts in `Glide HQ/Automations/`.

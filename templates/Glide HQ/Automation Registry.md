@@ -11,5 +11,6 @@ Glide itself does not run automations. The selected harness decides whether auto
 | [[Automations/Follow-Through Review]] | Proposed | Weekly or twice weekly | Follow-through ledger, open loops, waiting threads, connector signal | `glide-follow-through-review` | Stale loops, suggested nudges, and approval-needed drafts | |
 | [[Automations/Founder Drift Review]] | Proposed | Weekly | Operating files, checklists, skills, evals if present, approval boundaries | `glide-founder-drift-review` | Drift report or small non-behavioral corrections | |
 | [[Automations/Nightly Founder Research Review]] | Proposed | Daily at 4am | Recent exchanges, company open loops, open research, eval signals, area connections, stale working-memory candidates, and concise process improvements | `glide-nightly-founder-research-review` | Internal Glide HQ updates and rolling 4-day audit; approval requests only when needed | |
+| [[Automations/Weekly Glide Update Check]] | Proposed | Weekly | Upstream releases, migration notes, local instructions, installed skills, checklists, and automation notes | `glide-check-for-updates` | Quiet no-op when current; update plan or approval request when a new release exists | |
 
 Do not enable automations without user confirmation.

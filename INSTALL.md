@@ -15,7 +15,8 @@ The installer should:
 7. Create or update the root harness instruction file.
 8. Inspect available harness connectors and record what is actually connected.
 9. Initialize git if the workspace is not already a repository.
-10. Offer starter automations after explicit confirmation.
+10. Create `Glide HQ/Glide Updates.md` with the upstream repo URL and installed release.
+11. Offer starter automations after explicit confirmation.
 
 Glide defines behavior. The harness decides where computation happens and what data is sent.
 
@@ -86,6 +87,7 @@ After confirmation:
 5. Create or update `Glide HQ/Connector Inventory.md` from the connectors actually visible to the harness.
 6. If the workspace is not already a git repository, run `git init` after confirmation.
 7. Add the Glide root instruction section telling agents to keep useful content and harness updates committed with very short commit messages.
+8. Set `Glide HQ/Glide Updates.md` with the upstream repo URL, installed release, and update policy.
 
 ## Step 5: Offer Starter Automations
 
@@ -96,6 +98,7 @@ Offer only:
 - Follow-Through Review
 - Founder Drift Review
 - Nightly Founder Research Review
+- Weekly Glide Update Check
 
 Confirm before enabling any automation. If the harness does not support automations, keep the prompts as proposed manual automations in `Glide HQ/Automations/`.
 

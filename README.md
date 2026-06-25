@@ -25,7 +25,7 @@ Glide loads the company context, GTM area, customer notes, active goals, decisio
 - `Founder Brief.md` captures leadership style, risk appetite, working preferences, and approval boundaries.
 - Areas cover Strategy, Customers, Product, GTM, Sales, Marketing, Finance, Fundraising, Hiring, Operations, and Board & Investors.
 - Skills and checklists encode repeatable founder/CEO workflows.
-- Automations are optional prompts for daily, weekly, follow-through, drift, and quiet 4am research reviews.
+- Automations are optional prompts for daily, weekly, follow-through, drift, quiet 4am research, and release-update reviews.
 - Connectors are discovered from the user's harness during setup; Glide records what is actually available and how it may be used safely.
 
 Glide keeps its internal memory and working structure in `Glide HQ/`. It can read company docs, repos, tools, and external sources when allowed, but it should not modify external systems without explicit approval.

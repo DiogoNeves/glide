@@ -20,6 +20,7 @@
 - Area review: use `Checklists/Area Review.md`.
 - Research: use `Research/AGENTS.md`.
 - Nightly founder research review: use `Checklists/Nightly Founder Research Review.md`.
+- Glide update check: use `Checklists/Glide Update Check.md`.
 - Drift review: use `Checklists/Founder Drift Review.md`.
 
 ## Translation Layer

@@ -20,6 +20,8 @@ Good contributions include:
 - Do not include private company data, credentials, customer data, or real transcripts.
 - Write examples as neutral placeholders.
 - Preserve the rule: reading and fetching can be allowed; external changes require human approval.
+- Unless a change is specific to one Glide package, keep the Glide repos in sync.
+- Every release should include concise update or migration notes.
 
 ## Skill Checklist
 

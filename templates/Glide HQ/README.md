@@ -8,6 +8,7 @@ Start with:
 
 - `AGENTS.md` for operating rules.
 - `Harness Design Principles.md` for protected principles.
+- `Glide Updates.md` for upstream release and migration state.
 - `Company Context.md` for durable company context.
 - `Founder Brief.md` for founder preferences and approval boundaries.
 - `Connector Inventory.md` for the tools actually connected to the harness.

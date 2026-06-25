@@ -4,6 +4,11 @@ Notable changes to Glide.
 
 ## 2026-06-25
 
+### Added Weekly Glide Update Checks
+
+- Added `glide-check-for-updates`, `Glide HQ/Glide Updates.md`, a weekly update-check automation prompt, and harness adapter prompts.
+- Added update-state and migration guidance so installed workspaces can track the last seen upstream release and preserve local instructions.
+
 ### Added Nightly Founder Research Review
 
 - Added a quiet 4am research and memory maintenance skill, checklist, automation prompt, and rolling 4-day audit.
