@@ -13,3 +13,4 @@ Installed Glide skills.
 - `glide-detect-contradictions`: find tensions across context, goals, metrics, and behavior.
 - `glide-founder-drift-review`: keep Glide operations aligned with design principles.
 - `glide-create-area`: create a new company area.
+- `glide-nightly-founder-research-review`: run quiet 4am research, memory, eval, and cross-area maintenance.

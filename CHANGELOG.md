@@ -2,6 +2,13 @@
 
 Notable changes to Glide.
 
+## 2026-06-25
+
+### Added Nightly Founder Research Review
+
+- Added a quiet 4am research and memory maintenance skill, checklist, automation prompt, and rolling 4-day audit.
+- Included the schedule in Codex, Claude Code, and generic automation adapters.
+
 ## 2026-06-20
 
 ### Capped Daily Founder Output

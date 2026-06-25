@@ -95,6 +95,7 @@ Offer only:
 - Weekly CEO Review
 - Follow-Through Review
 - Founder Drift Review
+- Nightly Founder Research Review
 
 Confirm before enabling any automation. If the harness does not support automations, keep the prompts as proposed manual automations in `Glide HQ/Automations/`.
 

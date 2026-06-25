@@ -12,6 +12,7 @@ Start with:
 - `Founder Brief.md` for founder preferences and approval boundaries.
 - `Connector Inventory.md` for the tools actually connected to the harness.
 - `Follow-Through Ledger.md` for commitments and waiting threads.
+- `Evals/Nightly Research Audit.md` for the rolling internal audit of quiet research maintenance.
 - `Areas/` for company domains.
 - `Checklists/` for repeatable workflows.
 - `Automations/` for proposed or active recurring prompts.

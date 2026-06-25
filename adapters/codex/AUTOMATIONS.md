@@ -6,5 +6,6 @@ Starter automations:
 - `automations/weekly-ceo-review.md`
 - `automations/follow-through-review.md`
 - `automations/founder-drift-review.md`
+- `automations/nightly-founder-research-review.md`
 
 Confirm schedule, workspace, model, reasoning effort, and destination before enabling.

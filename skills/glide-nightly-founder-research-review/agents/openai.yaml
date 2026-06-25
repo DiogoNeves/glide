@@ -1,0 +1,4 @@
+interface:
+  display_name: "Nightly Founder Research Review"
+  short_description: "Quiet founder research maintenance"
+  default_prompt: "Use $glide-nightly-founder-research-review for this founder/CEO workspace."
