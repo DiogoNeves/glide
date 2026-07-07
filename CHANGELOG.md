@@ -2,6 +2,12 @@
 
 Notable changes to Glide.
 
+## 2026-07-07
+
+### Clarified Evolution Guidance
+
+- Updated installation guidance to invite users to adjust Glide's operating style and expand automations gradually as confidence grows.
+
 ## 2026-06-25
 
 ### Added Weekly Glide Update Checks

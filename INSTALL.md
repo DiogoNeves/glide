@@ -124,3 +124,9 @@ During setup:
 3. Ask the user before installing or enabling anything new.
 4. Use available connectors for read/fetch workflows when access is granted.
 5. For write or external-state changes, draft the action and ask for approval first.
+
+## Step 8: Help The User Evolve Glide
+
+Tell the user they can ask Glide to operate differently when the tone, cadence, question style, or proactivity feels wrong.
+
+As confidence increases, suggest automating more areas gradually with clear approval boundaries and small reversible checks first.
