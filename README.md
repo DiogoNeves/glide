@@ -27,6 +27,7 @@ Glide loads the company context, GTM area, customer notes, active goals, decisio
 - Skills and checklists encode repeatable founder/CEO workflows.
 - Automations are optional prompts for daily, weekly, follow-through, drift, quiet 4am research, and release-update reviews.
 - Connectors are discovered from the user's harness during setup; Glide records what is actually available and how it may be used safely.
+- Optional [software access guides](software/README.md) document safe app-specific reads, including WhatsApp on macOS.
 
 Glide keeps its internal memory and working structure in `Glide HQ/`. It can read company docs, repos, tools, and external sources when allowed, but it should not modify external systems without explicit approval.
 
@@ -38,6 +39,7 @@ Glide keeps its internal memory and working structure in `Glide HQ/`. It can rea
 - `adapters/`: Codex, Claude Code, and generic harness snippets.
 - `docs/`: concept, privacy, harness, and release checks.
 - `examples/`: short examples for common founder workflows.
+- [`software/`](software/README.md): optional app-access guides.
 
 ## Install
 

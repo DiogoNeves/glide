@@ -2,6 +2,13 @@
 
 Notable changes to Glide.
 
+## 2026-07-09
+
+### Added WhatsApp macOS Access Guide
+
+- Added optional software guidance for safe read-only WhatsApp Desktop access on macOS.
+- Documented approval boundaries for opening chats, sending messages, changing read state, and storing transcripts.
+
 ## 2026-07-07
 
 ### Clarified Evolution Guidance

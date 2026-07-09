@@ -16,7 +16,8 @@ The installer should:
 8. Inspect available harness connectors and record what is actually connected.
 9. Initialize git if the workspace is not already a repository.
 10. Create `Glide HQ/Glide Updates.md` with the upstream repo URL and installed release.
-11. Offer starter automations after explicit confirmation.
+11. Mention optional software access guides, including WhatsApp on macOS.
+12. Offer starter automations after explicit confirmation.
 
 Glide defines behavior. The harness decides where computation happens and what data is sent.
 
@@ -125,7 +126,23 @@ During setup:
 4. Use available connectors for read/fetch workflows when access is granted.
 5. For write or external-state changes, draft the action and ask for approval first.
 
-## Step 8: Help The User Evolve Glide
+## Step 8: Optional Software Access
+
+Mention that `software/` contains optional guides for connecting other apps. Do not enable app access by default.
+
+If the user wants app access:
+
+1. Ask which software they want to connect.
+2. Prefer official connectors, APIs, MCP servers, exports, AppleScript, Shortcuts, or URL schemes before computer control.
+3. Add only the relevant app guide or checklist.
+4. Record approval boundaries before reading or writing app data.
+5. For app-specific behavior, create a small skill and checklist instead of expanding the daily check-in.
+
+Current starter guide:
+
+- `software/whatsapp.md`
+
+## Step 9: Help The User Evolve Glide
 
 Tell the user they can ask Glide to operate differently when the tone, cadence, question style, or proactivity feels wrong.
 
