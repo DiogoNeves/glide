@@ -16,6 +16,10 @@ description: Run a concise daily founder/CEO check-in. Use for morning operating
 - `Glide HQ/Decision Log.md`
 - `Glide HQ/Questions Queue.md`
 - `Glide HQ/Contradiction Register.md`
+- `Glide HQ/Checklists/Eval Loop.md`
+- `Glide HQ/Evals/Run Log.md`
+- `Glide HQ/Evals/Signal Clusters.md`
+- `Glide HQ/Evals/Eval Cases.md`
 - Relevant area files
 - Configured connectors when safe and useful
 
@@ -30,6 +34,9 @@ description: Run a concise daily founder/CEO check-in. Use for morning operating
 7. During the first week of usage, occasionally ask one light calibration question about the daily update's signal, noise, timing, tone, length, missing context, or preferred action level.
 8. Draft external actions only for approval.
 9. Update Glide HQ as the conversation progresses, including durable calibration preferences.
+10. After a useful run, follow `Glide HQ/Checklists/Eval Loop.md` and append a light entry to `Glide HQ/Evals/Run Log.md` with facets and an eval decision of `keep`, `tune`, or `case`.
+11. Promote an eval case only for important failures, near-misses, repeated patterns, or unusually good behavior worth preserving.
+12. Add or update `Glide HQ/Evals/Signal Clusters.md` only when repeated facets suggest a reusable process or instruction change.
 
 ## Output
 
@@ -37,4 +44,5 @@ description: Run a concise daily founder/CEO check-in. Use for morning operating
 - Two or three items only when each is genuinely urgent or very important.
 - Never surface more than three items. If more than three may matter, say: `Hey, there are other things that might be important. Do you want me to continue?`
 - A light calibration question during the first week when useful.
+- A tiny run-log entry when useful, including facets and a `keep`, `tune`, or `case` decision.
 - Optional Glide HQ updates after the user responds.

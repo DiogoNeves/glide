@@ -12,6 +12,10 @@ Purpose: run a concise daily pass that improves company context, surfaces one us
 - `Decision Log.md`
 - `Questions Queue.md`
 - `Contradiction Register.md`
+- `Checklists/Eval Loop.md`
+- `Evals/Run Log.md`
+- `Evals/Signal Clusters.md` only when recent eval patterns affect today's selection
+- `Evals/Eval Cases.md` only when a run reveals a reusable test case
 - Relevant area files
 - Configured connectors when safe and useful
 
@@ -57,6 +61,16 @@ During the first week of daily check-ins, proactively ask for light guidance on 
 - Ask about signal, noise, timing, tone, length, missing context, or preferred action level.
 - Do not make every check-in about feedback; include calibration when it naturally fits.
 - Capture durable preferences in `Founder Brief.md` or `Communication Preferences.md`.
+
+## Evaluation
+
+- Follow `Checklists/Eval Loop.md`.
+- When the run produces a useful touch or durable update, append one tiny row to `Evals/Run Log.md`.
+- Record date, run, touch type, sources used, useful verdict, facets, eval decision, and one improvement.
+- Use short facets such as `missed-deadline`, `stale-memory`, `too-broad-question`, `good-timing`, `approval-boundary`, `connector-failure`, `quiet-source-risk`, `goal-forward`, `maintenance-crowding`, `memory-update`, `source-provenance`, or `follow-through`.
+- Choose one eval decision: `keep`, `tune`, or `case`.
+- Promote a case only for important failures, near-misses, repeated patterns, or unusually good behavior worth preserving.
+- Add or update `Evals/Signal Clusters.md` only when repeated facets suggest a pattern.
 
 ## Guardrails
 

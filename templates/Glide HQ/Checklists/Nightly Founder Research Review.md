@@ -15,6 +15,7 @@ Purpose: run a quiet 4am background pass that improves company memory, research,
 - `Glide HQ/Follow-Through Ledger.md`
 - `Glide HQ/Contradiction Register.md`
 - `Glide HQ/Decision Log.md`
+- `Glide HQ/Checklists/Eval Loop.md`
 - `Glide HQ/Evals/*.md` when present
 - `Glide HQ/Evals/Nightly Research Audit.md`
 - Relevant area files under `Glide HQ/Areas/`
@@ -55,6 +56,8 @@ After parallel work:
 - connect related areas, decisions, questions, and open loops;
 - refine queued questions instead of accumulating vague ones;
 - consolidate duplicated loops or research entries;
+- update `Glide HQ/Evals/Signal Clusters.md` when repeated eval facets explain what is breaking or working;
+- suggest or create eval cases only for reusable failures, near-misses, repeated patterns, or unusually good behavior;
 - improve instructions only when the change is small, clear, and already aligned with approved design principles;
 - prefer shorter broader rules over narrow case-by-case conditions.
 

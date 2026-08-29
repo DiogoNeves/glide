@@ -9,6 +9,14 @@ Notable changes to Glide.
 - Added optional software guidance for safe read-only WhatsApp Desktop access on macOS.
 - Documented approval boundaries for opening chats, sending messages, changing read state, and storing transcripts.
 
+### Added Lightweight Eval Loop
+
+- Added Markdown-native eval-loop templates for run logs, signal clusters, eval cases, and the standard eval-loop checklist.
+- Updated daily check-ins, nightly research review, drift review, and update checks to use run-log facets, `keep`/`tune`/`case` decisions, signal clusters, and approval-gated instruction changes.
+- Migration guidance: existing workspaces should add missing eval files if absent, preserve local `Run Log.md`, `Eval Cases.md`, `Signal Clusters.md`, `Nightly Research Audit.md`, and audit history, and add new run-log columns without overwriting existing rows.
+- Installed skills and checklists may be updated, but behavior-changing local customizations require approval.
+- This release adds no telemetry, external storage, automated scoring, model-judge infrastructure, or new enabled automations.
+
 ## 2026-07-07
 
 ### Clarified Evolution Guidance

@@ -9,6 +9,10 @@ Purpose: keep an installed Glide workspace current with upstream releases while 
 - `Glide HQ/Harness Design Principles.md`
 - `Glide HQ/Automation Registry.md`
 - `Glide HQ/Skills Index.md`
+- `Glide HQ/Checklists/Eval Loop.md`
+- `Glide HQ/Evals/Run Log.md`
+- `Glide HQ/Evals/Signal Clusters.md`
+- `Glide HQ/Evals/Eval Cases.md`
 - Relevant local skills, checklists, automation notes, and operating files
 
 ## Review
@@ -19,8 +23,10 @@ Purpose: keep an installed Glide workspace current with upstream releases while 
 4. Compare upstream changes with local files.
 5. Separate updates into safe additive updates, local conflicts, behavior changes, automation changes, and changes that contradict user instructions.
 6. Apply only safe compatible updates.
-7. Ask before overwriting local changes, changing behavior, enabling automations, deleting data, or applying anything that conflicts with user instructions.
-8. Update `Glide Updates.md` with last checked date, last seen release, applied updates, and pending decisions.
+7. Add missing eval-loop files only when absent. Do not overwrite existing `Run Log.md`, `Eval Cases.md`, `Signal Clusters.md`, `Nightly Research Audit.md`, or local eval history.
+8. If an existing run log lacks new columns, add columns or a note while preserving all rows.
+9. Ask before overwriting local changes, changing behavior, enabling automations, deleting data, or applying anything that conflicts with user instructions.
+10. Update `Glide Updates.md` with last checked date, last seen release, applied updates, and pending decisions.
 
 ## Weekly Schedule
 

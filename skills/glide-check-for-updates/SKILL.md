@@ -12,6 +12,8 @@ description: Check the upstream Glide repository for new releases and migration 
 - `Glide HQ/Automation Registry.md`
 - `Glide HQ/Skills Index.md`
 - `Glide HQ/Harness Design Principles.md`
+- `Glide HQ/Checklists/Eval Loop.md`
+- Local eval history in `Glide HQ/Evals/*.md`
 - Installed Glide skills, checklists, and automation notes when comparing changes
 
 ## Process
@@ -22,9 +24,11 @@ description: Check the upstream Glide repository for new releases and migration 
 4. Read release notes and migration instructions for every unseen release.
 5. Build a small migration plan: new files, changed files, behavior changes, local conflicts, and approval-needed items.
 6. Apply only updates that are clearly compatible with local instructions and user-provided preferences.
-7. Ask before overwriting local customizations, changing behavior, enabling automations, deleting data, or applying anything that conflicts with user instructions.
-8. Update `Glide HQ/Glide Updates.md` with the latest seen release, applied changes, pending approvals, and last checked date.
-9. If the workspace uses git and the root instructions ask for it, commit successful update changes with a brief message.
+7. Add missing eval-loop files only when absent. Do not overwrite existing `Glide HQ/Evals/Run Log.md`, `Glide HQ/Evals/Eval Cases.md`, `Glide HQ/Evals/Signal Clusters.md`, `Glide HQ/Evals/Nightly Research Audit.md`, or local eval history.
+8. If an existing run log lacks new columns, add columns or a note while preserving all rows.
+9. Ask before overwriting local customizations, changing behavior, enabling automations, deleting data, or applying anything that conflicts with user instructions.
+10. Update `Glide HQ/Glide Updates.md` with the latest seen release, applied changes, pending approvals, and last checked date.
+11. If the workspace uses git and the root instructions ask for it, commit successful update changes with a brief message.
 
 ## Output
 
