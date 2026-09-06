@@ -25,3 +25,7 @@ For model selection, use the [repeatable synthetic screen](../examples/model-scr
 The daily starter maps to `daily`, the nightly research starter to `dream`, and the drift-review starter to `integrity`. Where a follow-through starter exists, it maps to `evening`. Retain separate business reviews, release/update checks and other narrowly authorized jobs; do not run a legacy file-writing prompt alongside its replacement against the same state.
 
 At cutover, install the appropriate enabled-memory branch in each actual scheduler entry and record the chosen job ID and configuration path privately. Updating this repository does not update a saved automation. If the host cannot schedule, use the same procedures manually.
+
+## Optional conversation recovery
+
+When the owner has selected authorized history sources, install `glide-conversation-learning` and both conversation checklists. Daily performs a bounded capture/recovery pass; dream resumes pending coverage and consolidates useful candidates. Founder drift review checks captured feedback against later behavior and the protected principles. Coverage and permitted outputs commit through the existing job transaction; knowledge requiring separate review stays pending until its own application receipt. Follow the [canonical procedure](../templates/Glide%20HQ/Checklists/Conversation%20Learning.md); a bundle checkpoint alone does not prove conversation coverage. Reuse existing schedules and preserve each instance’s account boundaries.

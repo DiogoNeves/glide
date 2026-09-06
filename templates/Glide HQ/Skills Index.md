@@ -24,3 +24,5 @@ Enable these only after the memory upgrade is complete:
 - `glide-dream`: consolidate changed evidence and propose learned procedures.
 - `glide-review`: review proposed changes and verify application receipts.
 - `glide-integrity`: verify recovery and prepare bounded evaluation.
+
+- `glide-conversation-learning`: meaningful conversational capture, scoped steering and optional authorized history recovery for enabled memory.

@@ -75,3 +75,7 @@ Fresh instances use `knowledge_review: manual` and `review_ui: text`. On upgrade
 Automatic knowledge retains AI authorship, unreviewed status and exact scoped Markdown evidence. That pathway cannot create commitments, delivery/completion state, due dates or superseding decisions. Operations retain their separately authorized procedure.
 
 Prefer compact job change descriptors and page relevant historical inputs with `glide_job_input_page(job_id, bundle, cursor, limit)`. Registering an archive does not require reviewing or promoting every historical claim. Render text by default; interactive reviews use the same evidence and decisions with a verified follow-up bridge and text fallback. Question/adjust controls start conversation and do not apply changes.
+
+## Conversational steering
+
+When the optional continuity skill and both checklists are installed, use [Conversation Learning](Checklists/Conversation%20Learning.md) for scoped user guidance, the managed review inbox and conversation-coverage receipts. Direct ongoing user feedback can update its scoped memory immediately; it is distinct from the weekly inferred-overlay budget. Temporary states retain their time boundary. Storing or retrieving a candidate does not activate it or grant external-action authority. History recovery requires separately selected source scope; missing connectors do not authorize access to other accounts.

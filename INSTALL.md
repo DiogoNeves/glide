@@ -161,3 +161,7 @@ python3 "/path/to/glide/runtime/install.py" --source "/path/to/glide/runtime" --
 Substitute verified local paths. A build or package-manifest mismatch stops installation; do not remove the flag to force a different runtime. See [compatibility](docs/COMPATIBILITY.md) for future pin updates.
 
 Fresh runtime preferences are `--knowledge-review manual --review-ui text`. Optional automatic knowledge requires `--knowledge-review automatic` and one or more explicit `--automatic-source-prefix` values; it retains AI/unreviewed provenance and grants no operational or external-action authority. Presentation is independent: `--review-ui interactive` uses a verified conversation bridge with text fallback. Omitted upgrade preferences preserve local choices. The native helpers ship with the shared runtime; enabling their permissions and private configuration is separate.
+
+## Optional Conversation Continuity
+
+Offer [conversation continuity](docs/CONVERSATION-LEARNING.md) with versioned memory. Install `glide-conversation-learning`, `Conversation Learning.md` and `Conversation Recovery.md`; retain existing source ownership and review settings. Ask which accounts, devices and history sources are authorized for recovery, preserving any existing explicit choices. Live capture of useful current input does not require access to other chats. Install the optional local metadata helper outside the workspace and reuse selected daily/dream/drift jobs; no new permissions or schedules are implied.

@@ -78,3 +78,15 @@ Text is the portable default. Interactive UI follows preview → submit → vali
 ## Release evidence
 
 Before publishing, run the current suite and both clean setup paths, check wheel contents include the HTML and helper modules, validate links and skills, and review staged files for private data. Record failures/skips and remaining field observations. CI checks reproducible code behavior; it should not silently invoke a paid model or external connector. Existing instances still need [upgrade inspection and rollback](UPGRADING.md).
+
+## Conversation continuity
+
+The separately distributed metadata inventory and its tests are byte-identical to the Obsidian edition’s 6 September 2026 implementation. This generic port passed **14 synthetic tests** locally on macOS; they cover resumed older tasks, missing/stale indexes, internal-origin filtering before pagination, header-only reads, symlinks, unreadable/partial inputs, changed files and paging drift. Reproduce them from this checkout:
+
+```sh
+python3 -B -m unittest discover -s tests -p test_conversation_inventory.py -v
+```
+
+The conversation-learning skill and changed daily/dream/drift entrypoints passed structural skill validation. Six synthetic scenario inputs are supplied in [conversation-learning-cases.json](../examples/conversation-learning-cases.json). They distinguish explicit steering, temporary context, unaccepted suggestions, late corrections, duplicate retries and inferred overgeneralization. These inputs are not a model benchmark or proof of future compliance. The original Obsidian procedure received an independent reading-based scenario review; this generic adaptation preserves its authority distinctions but needs observation in each installed harness.
+
+No pinned core runtime files or schema changed, and the 139-test core result above is prior evidence, not a rerun for this documentation/helper port. Verify exact helper/test identity between the two checkouts using the [compatibility checks](CONVERSATION-LEARNING.md#jobs-verification-and-upgrades). Real history coverage is partial by source and page; inventory counts are not reviewed-message counts. Record actual capture/application receipts and later behavior before claiming successful continuing use.

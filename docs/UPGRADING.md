@@ -45,3 +45,7 @@ Use [SETUP.md](SETUP.md) to configure the fixed MCP entrypoint, read-only reader
 Before enabling the new writer, run the matching [validation guide](VALIDATION.md), inspect effective review preferences, verify a real source/proposal/receipt and reconcile pending inputs. Compact job descriptors can be expanded with `glide_job_input_page`; archive registration alone is not reviewed knowledge. Preserve pending proposals and durable decisions across upgrades.
 
 For source control or Obsidian transport, follow [STORAGE-AND-GIT.md](STORAGE-AND-GIT.md). Keep the live local index out of commits and ordinary synchronization; `.gitignore` is not a removal or cleanup operation for already tracked data.
+
+## Conversational continuity
+
+For an instance whose owner selects conversation continuity, follow [Conversation Learning](CONVERSATION-LEARNING.md). Replace optional creation-date snippet scanning with bounded task/message recovery and explicit coverage where history is authorized. Preserve source permissions, schedules, models and protected principles; install executable helpers outside the workspace. Record the first capture and inspected coverage rather than claiming the whole archive has been reviewed. The helper is separate from the pinned core runtime; no schema or data migration is needed.

@@ -25,6 +25,10 @@ jobs:
           PYTHONPATH: runtime
       - name: Synthetic model-screen wrapper regressions
         run: python -m unittest discover -s examples/model-screen -p 'test_*.py' -v
+      - name: Conversation inventory metadata and recovery hints
+        run: python -m unittest discover -s tests -p test_conversation_inventory.py -v
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
       - name: Content pin and clean default installation
         run: python runtime/check_package.py
       - name: Build and exercise installed wheel assets

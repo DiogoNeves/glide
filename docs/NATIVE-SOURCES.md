@@ -52,6 +52,8 @@ Inspect the actual recordings directory on the machine and install the selected 
 
 ## Optional Codex context
 
+For authorized ongoing conversation recovery, use [Conversation Learning](CONVERSATION-LEARNING.md): app message history plus the separately installed metadata inventory. The legacy date-based snippet helper below does not cover resumed older tasks reliably and must not establish reviewed coverage.
+
 The packaged `codex_day_context.py` is a standalone reader, not an implicit source of durable claims. Inspect `--help`, choose the local Codex history and bounded date/window, and review its stdout before making a sourced capture. For example: `python3 /absolute/installed/runtime/glide_memory/helpers/codex_day_context.py --date 2025-01-01 --codex-home /absolute/private/codex-history --max-sessions 20`. Session records may contain private tool output and inferred progress; a conversation summary is not independent corroboration or delivery evidence. The core installer does not automatically enable this helper or import all conversations.
 
 ## Adding another source

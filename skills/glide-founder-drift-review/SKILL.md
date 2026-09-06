@@ -35,3 +35,5 @@ description: Review Glide operating files for drift against Harness Design Princ
 - Approval-needed recommendations.
 
 For an explicitly enabled memory store, delegate integrity and eligible learned-overlay evaluation to `glide-integrity` using `Glide HQ/Memory Protocol.md`. This exception does not authorize core-instruction changes. Managed record changes use the runtime and preserve revision history.
+
+For enabled memory, use the checklist’s conversation-learning branch to compare captured steering with later behavior. Clear guidance already given by the owner needs no repeated confirmation; inferred procedural changes remain candidates until reviewed.

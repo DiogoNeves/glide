@@ -175,3 +175,7 @@ python3 -m glide_memory --config "$GLIDE_CONFIG" writer deactivate
 ```
 
 Keep or remove only the disposable directory you created, after inspecting its path. Production cutover, backups and machine transfer follow [UPGRADING.md](UPGRADING.md).
+
+## Optional conversation continuity
+
+For meaningful conversational capture and optional history recovery, follow [Conversation Learning](CONVERSATION-LEARNING.md). Install its skill and both checklists; select authorized history sources independently of knowledge-review mode. Install the metadata helper outside the workspace only when local Codex discovery is wanted. Existing schedules can run the bounded recovery branch after their prompts are explicitly updated; installing templates alone changes no job.

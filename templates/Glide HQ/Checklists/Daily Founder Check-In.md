@@ -2,6 +2,10 @@
 
 Purpose: run a concise daily pass that improves company context, surfaces one useful signal, and protects follow-through.
 
+## Enabled-memory branch
+
+After a recorded versioned-memory cutover, use [Memory Protocol](../Memory%20Protocol.md) instead of the legacy file inventory and direct-write steps below. Start with compact `glide_job_inputs(job_id="daily")`, retrieve relevant managed context/current operations and page needed evidence. Include the authorized conversation-recovery branch below before choosing the touch. Commit permitted outputs and successful coverage with the returned checkpoint through `glide_finish_job`; knowledge needing separate review remains pending. Successful intake receipts cover only their reported successful source scope; partial or unavailable ranges remain pending. Preserve unresolved inputs. Keep the concise output and source-ranking guidance, resolving its legacy file references to equivalent managed records after cutover.
+
 ## Load
 
 - `Glide HQ/AGENTS.md`
@@ -77,3 +81,7 @@ During the first week of daily check-ins, proactively ask for light guidance on 
 - Reading and fetching is allowed when access is configured.
 - Drafting is allowed.
 - Ask before posting, sending, scheduling, changing tools, approving, purchasing, deleting, publishing, or committing the company.
+
+## Enabled-memory conversation recovery
+
+When history recovery is authorized, use [Conversation Learning](Conversation%20Learning.md) for a bounded recovery pass before choosing today’s touch. Commit successful coverage with permitted outputs through the existing daily job transaction; manual-review knowledge remains pending until its separate receipt. Reuse existing records and preserve unread ranges.
