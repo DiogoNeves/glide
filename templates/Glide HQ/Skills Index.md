@@ -15,3 +15,12 @@ Installed Glide skills.
 - `glide-create-area`: create a new company area.
 - `glide-nightly-founder-research-review`: run quiet 4am research, memory, eval, and cross-area maintenance.
 - `glide-check-for-updates`: check upstream Glide releases and apply compatible migration notes.
+
+## Optional Versioned Memory
+
+Enable these only after the memory upgrade is complete:
+
+- `glide-memory`: retrieve or propose versioned memory with evidence.
+- `glide-dream`: consolidate changed evidence and propose learned procedures.
+- `glide-review`: review proposed changes and verify application receipts.
+- `glide-integrity`: verify recovery and prepare bounded evaluation.

@@ -1,0 +1,234 @@
+[
+  {
+    "model": "gpt-5.6-terra",
+    "effort": "xhigh",
+    "exit_code": 0,
+    "elapsed_seconds": 17.06,
+    "cases": [
+      {
+        "id": "1",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "2",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "3",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "4",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "5",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "6",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "7",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "8",
+        "decision_correct": true,
+        "required_evidence_present": true
+      }
+    ],
+    "all_pass": true,
+    "usage": [
+      {
+        "input_tokens": 13665,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 747,
+        "reasoning_output_tokens": 383
+      }
+    ]
+  },
+  {
+    "model": "gpt-5.6-terra",
+    "effort": "high",
+    "exit_code": 0,
+    "elapsed_seconds": 13.08,
+    "cases": [
+      {
+        "id": "1",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "2",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "3",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "4",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "5",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "6",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "7",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "8",
+        "decision_correct": true,
+        "required_evidence_present": true
+      }
+    ],
+    "all_pass": true,
+    "usage": [
+      {
+        "input_tokens": 13665,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 527,
+        "reasoning_output_tokens": 164
+      }
+    ]
+  },
+  {
+    "model": "gpt-6-astra",
+    "effort": "high",
+    "exit_code": 0,
+    "elapsed_seconds": 16.25,
+    "cases": [
+      {
+        "id": "1",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "2",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "3",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "4",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "5",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "6",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "7",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "8",
+        "decision_correct": true,
+        "required_evidence_present": true
+      }
+    ],
+    "all_pass": true,
+    "usage": [
+      {
+        "input_tokens": 14703,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 369,
+        "reasoning_output_tokens": 0
+      }
+    ]
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "exit_code": 0,
+    "elapsed_seconds": 15.83,
+    "cases": [
+      {
+        "id": "1",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "2",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "3",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "4",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "5",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "6",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "7",
+        "decision_correct": true,
+        "required_evidence_present": true
+      },
+      {
+        "id": "8",
+        "decision_correct": true,
+        "required_evidence_present": true
+      }
+    ],
+    "all_pass": true,
+    "usage": [
+      {
+        "input_tokens": 13665,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 648,
+        "reasoning_output_tokens": 273
+      }
+    ]
+  }
+]

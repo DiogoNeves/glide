@@ -1,0 +1,88 @@
+<div id="GLIDE_REVIEW_ROOT" class="glide-review">
+  <div class="viz-row"><span class="viz-badge">Review</span><span data-summary></span></div>
+  <div class="text-small" data-rationale></div>
+  <div data-records></div>
+  <hr>
+  <div class="viz-controls">
+    <button type="button" class="btn btn-primary" data-decision="approved">Confirm interpretation</button>
+    <button type="button" class="btn" data-decision="rejected">Reject interpretation</button>
+    <button type="button" class="btn" data-discuss>Question or adjust</button>
+  </div>
+  <div class="text-small" aria-live="polite" data-status>Preview → Submit decision → Validate revision → Apply → Receipt</div>
+</div>
+<style>
+#GLIDE_REVIEW_ROOT { overflow-wrap:anywhere; }
+#GLIDE_REVIEW_ROOT .review-columns { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-block:1rem; }
+#GLIDE_REVIEW_ROOT blockquote { margin-inline:0; padding-inline-start:1rem; border-inline-start:2px solid var(--border); }
+#GLIDE_REVIEW_ROOT [data-status] { margin-block-start:1rem; }
+@media(max-width:550px) { #GLIDE_REVIEW_ROOT .review-columns { grid-template-columns:1fr; gap:0; } }
+</style>
+<script>
+(() => {
+  const root = document.getElementById('GLIDE_REVIEW_ROOT');
+  const data = GLIDE_REVIEW_DATA;
+  const status = root.querySelector('[data-status]');
+  root.querySelector('[data-rationale]').textContent = data.rationale;
+  root.querySelector('[data-summary]').textContent = data.records.length + ' proposed interpretation' + (data.records.length === 1 ? '' : 's');
+  function el(tag, text, parent, className) {
+    const item=document.createElement(tag);
+    if(text !== undefined) item.textContent=text;
+    if(className) item.className=className;
+    parent.appendChild(item); return item;
+  }
+  function sourcePassage(source, parent) {
+    const link=el('a',source.path || source.uri,parent);
+    if(source.path && data.adapter==='obsidian') link.href='obsidian://open?vault='+encodeURIComponent(data.vault_name)+'&file='+encodeURIComponent(source.path);
+    else if(source.uri && /^https?:\/\//.test(source.uri)) {link.href=source.uri;link.rel='noreferrer';}
+    el('blockquote',source.quote,parent);
+    if(source.locator) el('div',source.locator,parent,'text-small');
+  }
+  for (const record of data.records) {
+    const section=el('section',undefined,root.querySelector('[data-records]'));
+    el('h3',record.title,section);
+    el('div','AI interpretation · current revision '+data.expected_revisions[record.id]+' · '+record.review,section,'text-small');
+    const columns=el('div',undefined,section,'review-columns');
+    const interpretation=el('div',undefined,columns);
+    el('div','Proposed record',interpretation,'text-small');
+    for(const paragraph of record.body.split('\n\n')) el('p',paragraph,interpretation);
+    const evidence=el('div',undefined,columns);
+    el('div','Supporting passages',evidence,'text-small');
+    for(const source of record.sources) sourcePassage(source,evidence);
+    for(const claim of record.claims) {
+      el('div',claim.type,interpretation,'text-small');
+      el('p',claim.text,interpretation);
+      if(claim.uncertainty) el('p',claim.uncertainty,interpretation);
+      for(const source of claim.sources) sourcePassage(source,evidence);
+    }
+    if(record.relationships.length) {
+      const list=el('ul',undefined,section);
+      for(const relation of record.relationships) el('li',relation.type+' → '+(relation.target_title || relation.target)+': '+relation.reason,list);
+    }
+  }
+  root.querySelector('[data-discuss]').addEventListener('click',async()=>{
+    if(!window.openai || typeof window.openai.sendFollowUpMessage!=='function') {
+      status.textContent='Tell Codex what you would question or adjust in this interpretation. No change was applied.';return;
+    }
+    const prompt='Help me question or adjust Glide proposal '+data.proposal_id+' in instance '+data.instance_id+'. Expected revisions: '+JSON.stringify(data.expected_revisions)+'. Read that exact proposal and its evidence, explain the weakest assumptions or relevant counterevidence, and help me express any correction conversationally. Do not apply this proposal or a replacement from this request. Keep AI authorship visible.';
+    try {
+      await window.openai.sendFollowUpMessage({prompt,title:'Discuss this interpretation?'});
+      status.textContent='Continue the discussion in the conversation. This preview has not applied a change.';
+    } catch(error) {
+      status.textContent='The discussion request did not complete. You can still describe your concern in the conversation.';
+    }
+  });
+  for(const button of root.querySelectorAll('[data-decision]')) button.addEventListener('click',async()=>{
+    if(!window.openai || typeof window.openai.sendFollowUpMessage!=='function') {
+      status.textContent='Review submission is available in the Codex conversation. No change was applied.';return;
+    }
+    const decision=button.dataset.decision;
+    const prompt='Record my '+decision+' review of Glide proposal '+data.proposal_id+' in instance '+data.instance_id+'. Expected revisions: '+JSON.stringify(data.expected_revisions)+'. Idempotency key: review:'+data.proposal_id+':'+decision+'. Validate that exact proposal and current revisions, then apply this decision using the scoped Glide writer. Preserve AI authorship and show the actual durable receipt. If the proposal or revisions differ, do not apply a replacement; show the new preview.';
+    try {
+      await window.openai.sendFollowUpMessage({prompt,title:'Submit this interpretation review?'});
+      status.textContent='Return to the conversation for revision validation and an application receipt. This preview has not applied a change.';
+    } catch(error) {
+      status.textContent='Submission did not complete. No change was applied by this preview.';
+    }
+  });
+})();
+</script>

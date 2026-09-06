@@ -1,66 +1,31 @@
 # Glide
 
-Glide is a Markdown operating system for founders and CEOs.
+Glide helps founders and CEOs keep context, question assumptions and follow through using Markdown and an AI agent.
 
-It gives an AI agent a durable home for company context, founder preferences, strategic decisions, open questions, research, follow-through, and operating cadence. The point is simple: stop repeating context, make better company decisions, and keep important threads moving without turning the business into more admin.
+Talk to it in Codex, Claude Code or another supported harness. Keep writing in your existing files. Glide connects useful knowledge and maintains open loops, decisions and workflows in `Glide HQ/`.
 
-Glide is not an app or SaaS. It is a public set of Markdown templates, skills, checklists, and automation prompts that works with Codex, Claude Code, or another agent harness. Your harness is the execution layer; Glide defines the operating behavior.
+## Three parts
 
-## Why Glide Exists
+- **Your writing:** original notes and source material, preserved unchanged.
+- **Knowledge:** useful concepts with supporting passages, dates, uncertainty and meaningful links.
+- **Operations:** intentions, commitments, decisions and outcomes, kept distinct.
 
-Founders carry too much in their heads: product direction, customer signal, investor context, hiring constraints, GTM bets, awkward unresolved decisions, and promises made in passing.
+The optional memory runtime stores durable records and complete revision history in **human-readable Markdown**. SQLite is a local, rebuildable search index. Python, the database and private machine configuration stay outside the synchronized workspace. Both Glide editions use the same runtime; no empty database needs downloading.
 
-Glide turns that into an agent-readable company operating layer. The agent can read, research, synthesize, challenge, draft, and maintain context over time. It can fetch information when access is configured, but it should ask before posting, sending, changing, purchasing, scheduling, approving, or making commitments.
+Reviews work in conversation. Text is the default; interactive reviews are optional and only report success after a real writer receipt. Optional automatic knowledge processing keeps its output marked as AI and unreviewed. It does not authorize external actions.
 
-## A Small Example
+The recorded local validation passed **139 runtime tests**, including recovery after deleting a disposable SQLite index. [Validation details](docs/VALIDATION.md) explain the checks, model screen and remaining field observations.
 
-A founder asks: "Are we avoiding the real GTM problem?"
+## Get started
 
-Glide loads the company context, GTM area, customer notes, active goals, decision log, contradictions, and follow-through ledger. It gives a direct read, names the missing evidence, suggests the next customer or metric check, and updates the right Markdown files as the conversation progresses.
+Ask your agent to follow [INSTALL.md](INSTALL.md). It inspects your workspace and preserves local conventions before installing selected components.
 
-## How It Works
+- [Complete memory setup](docs/SETUP.md): fresh synthetic walkthrough, Codex configuration and optional imports.
+- [Upgrade an existing instance](docs/UPGRADING.md): inspection, migration, machine handover and rollback.
+- [Validation](docs/VALIDATION.md): executable checks for provenance, recovery, stale writes and bounded learning, with their limits.
+- [Model-selection evidence](examples/model-screen/README.md): a recorded eight-case synthetic screen and its limits.
+- [Storage and runtime contract](docs/MEMORY-RUNTIME.md).
 
-- `Glide HQ/` is the agent-owned company operating workspace.
-- `Company Context.md` captures product, market, customers, business model, metrics, strategy, risks, and open questions.
-- `Founder Brief.md` captures leadership style, risk appetite, working preferences, and approval boundaries.
-- Areas cover Strategy, Customers, Product, GTM, Sales, Marketing, Finance, Fundraising, Hiring, Operations, and Board & Investors.
-- Skills and checklists encode repeatable founder/CEO workflows.
-- Automations are optional prompts for daily, weekly, follow-through, drift, quiet 4am research, and release-update reviews.
-- Connectors are discovered from the user's harness during setup; Glide records what is actually available and how it may be used safely.
-- Optional [software access guides](software/README.md) document safe app-specific reads, including WhatsApp on macOS.
+Glide provides no hosted service or telemetry. Your harness, model provider, connectors and synchronization choices determine data exposure. See [privacy](docs/PRIVACY.md).
 
-Glide keeps its internal memory and working structure in `Glide HQ/`. It can read company docs, repos, tools, and external sources when allowed, but it should not modify external systems without explicit approval.
-
-## Included
-
-- `templates/Glide HQ/`: installable company operating workspace.
-- `skills/`: portable Agent Skills prefixed with `glide-`.
-- `automations/`: starter automation prompts.
-- `adapters/`: Codex, Claude Code, and generic harness snippets.
-- `docs/`: concept, privacy, harness, and release checks.
-- `examples/`: short examples for common founder workflows.
-- [`software/`](software/README.md): optional app-access guides.
-
-## Install
-
-Open the target Markdown workspace or company repo in your agent harness, then ask the harness to follow [INSTALL.md](INSTALL.md).
-
-The installer should inspect before writing, ask which harness to use, draft company context from existing materials when possible, then ask focused questions to correct and fill gaps.
-
-## Privacy
-
-Glide itself does not collect telemetry, run servers, transmit data, or store user data anywhere. It is Markdown structure and instructions.
-
-Privacy depends on the selected harness, model provider, connectors, sync, Git hosting, and automation setup. Review those policies before giving tools access to sensitive company data.
-
-See [docs/PRIVACY.md](docs/PRIVACY.md).
-
-## Inspiration
-
-Glide's company-context-first pattern is inspired by [Marketing Skills](https://github.com/coreyhaines31/marketingskills), especially the idea that one canonical context document should feed many specialized skills. Glide applies that pattern to broader founder/CEO operating work.
-
-## Contributing
-
-Suggestions are welcome: sharper founder workflows, better checklists, new skills, safer connector patterns, and examples from real startup operating work.
-
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+For a personal vault, see [Glide for Obsidian](https://github.com/DiogoNeves/glide-obsidian). [Contributions](CONTRIBUTING.md) are welcome.

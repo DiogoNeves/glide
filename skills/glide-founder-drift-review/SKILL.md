@@ -23,7 +23,7 @@ description: Review Glide operating files for drift against Harness Design Princ
 5. Add or update compact signal clusters before making eval-derived instruction changes.
 6. Fix only clear non-behavioral issues directly.
 7. Reduce verbosity when clarity and behavior survive.
-8. Ask before behavior-changing edits.
+8. Ask before behavior-changing edits outside the explicitly opted-in learned-overlay policy in `Memory Protocol.md`.
 9. Preserve human-approval boundaries for external actions.
 
 ## Output
@@ -33,3 +33,5 @@ description: Review Glide operating files for drift against Harness Design Princ
 - Eval clusters created or updated.
 - Verbosity reductions.
 - Approval-needed recommendations.
+
+For an explicitly enabled memory store, delegate integrity and eligible learned-overlay evaluation to `glide-integrity` using `Glide HQ/Memory Protocol.md`. This exception does not authorize core-instruction changes. Managed record changes use the runtime and preserve revision history.

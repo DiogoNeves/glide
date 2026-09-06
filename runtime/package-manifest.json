@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "version": "0.1.0",
+  "build": "df711b913f09",
+  "files": {
+    "glide_memory/__init__.py": "8fbaaddb1d7d75d77f19b77ae1a9104606110792054f283f20d43276d9787e7a",
+    "glide_memory/__main__.py": "d3bb63da3ec743f04355890a8013cf675b0dc9673afea974c39fe0d177a86468",
+    "glide_memory/bridge.py": "e4441f5bdb5ef6022ec680aa78b343e215b79df9277a1c42848165015397d9a1",
+    "glide_memory/helpers/__init__.py": "d0a471ef610ef4c53ed01e3b50a70be9ce015ad2916225b62e24f696bec63b94",
+    "glide_memory/helpers/codex_day_context.py": "f2c129bde8c41faf8aee190378d377fc24ed25485e4784696184789a585019bd",
+    "glide_memory/helpers/export_recent_notes.py": "072b2699c3448ab7d083ac5d9dfae8916bbca8c6fbf40cd0596416886576ed7e",
+    "glide_memory/helpers/sync_voice_memos.py": "31ac08b92da9cbabe6d7d160175b78c394d35d2824b62557b8552fac58f11594",
+    "glide_memory/intake.py": "6193ea6202cbebbfa3005199bd2886bea521ac12bc645a59f2069e65954e7c1c",
+    "glide_memory/jobs.py": "8f7128898312816b0d53350d7eb823ea8651aab145ca5182ac043e09c63a04b1",
+    "glide_memory/native_tools.py": "d1995f43630df7dac3e6b47fdac33e16df87a3bf564dcbfb47aec8424cbd64f5",
+    "glide_memory/overlays.py": "6c446c7e581d71d4b861877571e9475cbafd5a87768da76548d2644e3c4ff7b1",
+    "glide_memory/pipeline.py": "4043638ac847ffa7be13eaa6dabd2dc7d5b6f601859a3f93614c16b98dac4604",
+    "glide_memory/review.html": "60549d9ede6b0cc403d75156abaa822644563d8a7433794e7712c4702d89d048",
+    "glide_memory/review.py": "f5c0eb39554acb061b4c89d7baf992f9f9b6a02609672bad92a95004bc3e04e6",
+    "glide_memory/runner.py": "c3b4a1c325a2126059db4900a11fbd95dad79f4b7de7d32140eed53c1842a4b5",
+    "glide_memory/store.py": "7ede88ca3ddbaeb979b6d4200b86b86e3aeaa48c1e95c23be240b9854f5fc8ba"
+  }
+}

@@ -1,5 +1,9 @@
 # Daily Founder Check-In
 
+If versioned memory is enabled and its cutover is recorded, read `Glide HQ/Memory Protocol.md` and use the [portable-memory procedure](portable-memory.md) with job ID `daily`. Reconcile current operations and provide one concise evidence-led coaching touch. Use the managed store, compact job inputs and the protocol's review/checkpoint rules; preserve pending work and stay quiet when unchanged. Do not run the legacy file-writing instructions below in this mode. Source access and external actions retain their existing authority.
+
+Otherwise, use the existing workflow below.
+
 Run `$glide-daily-founder-check-in` for this workspace.
 
 Use the Glide skill as the source of truth. Before choosing the daily output, load `Company Context.md`, `Founder Brief.md`, `Follow-Through Ledger.md`, active area files, open decisions, questions, contradictions, and relevant configured connectors.
