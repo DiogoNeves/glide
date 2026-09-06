@@ -98,3 +98,7 @@ No pinned core runtime files or schema changed, and the 139-test core result abo
 The current change is instructions and documentation only. The two changed skill entrypoints pass structural validation; that checks their format, not future compliance. The content-pinned runtime, source sandbox and protected design principles are unchanged, so prior runtime results are not being reported as a new test run.
 
 A [recorded independent scenario review](../examples/input-surface-review.md) exercised the six prompts as reasoning cases and identified a delivery-failure gap that was clarified and reviewed again. No document edits, notifications or runtime decisions were executed by that evaluation. Observe the next real input request in the installed harness.
+
+## Recovery configuration exports
+
+The shared owner helper has eight synthetic tests for version preservation/idempotency, read-only inspection, pending backup status, changed/missing inputs, symlinks, traversal/duplicate names, credential/database tripwires and unexpected export files. Run `python3 -B -m unittest discover -s tests -p test_recovery_bundle.py -v` in the matching **glide** checkout. These checks do not prove backup service operation or restoration of a complete instance; follow [the recovery procedure](RECOVERY.md) in the actual harness.

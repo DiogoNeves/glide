@@ -81,3 +81,7 @@ Prefer compact job change descriptors and page relevant historical inputs with `
 ## Conversational steering
 
 When the optional continuity skill and both checklists are installed, use [Conversation Learning](Checklists/Conversation%20Learning.md) for scoped user guidance, the managed review inbox and conversation-coverage receipts. Direct ongoing user feedback can update its scoped memory immediately; it is distinct from the weekly inferred-overlay budget. Temporary states retain their time boundary. Storing or retrieving a candidate does not activate it or grant external-action authority. History recovery requires separately selected source scope; missing connectors do not authorize access to other accounts.
+
+## Instance recovery
+
+`Checklists/Recovery.md` governs recoverability of local configuration, frozen cases, custom instructions, imports and harness settings. SQLite is disposable; the entire application-data directory is not. Preserve exact versions and report unprotected dependencies.

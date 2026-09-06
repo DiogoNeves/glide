@@ -53,3 +53,7 @@ For an instance whose owner selects conversation continuity, follow [Conversatio
 ## Keep input outside internal memory
 
 Merge the [input and collaboration boundary](INPUT-AND-COLLABORATION.md) into active instructions, review skills, daily/weekly/decision checklists and actual authorized automation prompts. Keep existing internal history and queues in place. Inspect active requests that send the owner to edit HQ and deliver those questions in conversation; relocate only a specifically needed collaborative surface into the owner's chosen writing area, preserving source text and links. No runtime/schema migration, mass export or new write permission is implied. Record prior hashes for rollback and verify the next real input request.
+
+## Protect and recover this instance
+
+Follow [instance recovery](RECOVERY.md) before claiming setup or upgrade readiness. Install `Checklists/Recovery.md` and the separately hashed shared helper, inventory private dependencies, preserve backup/export choices, create and verify an approved local export, and test a disposable restore with writers/jobs disabled. Report missing off-machine protection in conversation. Embedded instances need this too; a rebuildable SQLite index does not make all local state disposable.

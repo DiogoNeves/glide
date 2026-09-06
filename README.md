@@ -33,3 +33,5 @@ Ask your agent to follow [INSTALL.md](INSTALL.md). It inspects your workspace an
 Glide provides no hosted service or telemetry. Your harness, model provider, connectors and synchronization choices determine data exposure. See [privacy](docs/PRIVACY.md).
 
 For a personal vault, see [Glide for Obsidian](https://github.com/DiogoNeves/glide-obsidian). [Contributions](CONTRIBUTING.md) are welcome.
+
+[Instance recovery](docs/RECOVERY.md) covers private configuration history, backup choices and tested restoration. Local application data is not all disposable.

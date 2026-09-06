@@ -183,3 +183,7 @@ For meaningful conversational capture and optional history recovery, follow [Con
 ## Owner-facing input
 
 Install [Input and Collaboration](INPUT-AND-COLLABORATION.md) and its canonical checklist with the memory protocol. Setup verification may inspect internal records; normal use never depends on the owner editing them. Required questions and spot checks arrive in conversation. Choose an external collaboration destination only when a shared document is useful, with clear AI attribution and explicit edit scope.
+
+## Protect and recover this instance
+
+Follow [instance recovery](RECOVERY.md) before claiming setup or upgrade readiness. Install `Checklists/Recovery.md` and the separately hashed shared helper, inventory private dependencies, preserve backup/export choices, create and verify an approved local export, and test a disposable restore with writers/jobs disabled. Report missing off-machine protection in conversation. Embedded instances need this too; a rebuildable SQLite index does not make all local state disposable.

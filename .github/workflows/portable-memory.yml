@@ -29,6 +29,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_conversation_inventory.py -v
         env:
           PYTHONDONTWRITEBYTECODE: '1'
+      - name: Local recovery export regressions
+        run: python -B -m unittest discover -s tests -p test_recovery_bundle.py -v
       - name: Content pin and clean default installation
         run: python runtime/check_package.py
       - name: Build and exercise installed wheel assets

@@ -33,3 +33,5 @@ When the owner has selected authorized history sources, install `glide-conversat
 ## Deliver required input
 
 Follow [Input and Collaboration](../templates/Glide%20HQ/Checklists/Input%20and%20Collaboration.md). Bring selected questions, manual knowledge reviews and human spot checks into the configured conversation with enough context to answer there. Internal Now/Ongoing/Durable views and queues are agent-maintained. If delivery is unavailable, retain a pending request and report the delivery gap when possible; saving a queue item is not proof the owner saw it. Keep optional shared documents outside HQ in an authorized writing location.
+
+During the existing integrity job, follow the installed `Checklists/Recovery.md`: inspect coverage, refresh changed approved local exports and surface material backup/restore gaps. Do not infer permission for uploads, another schedule or writer activation.

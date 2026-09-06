@@ -41,3 +41,5 @@ When versioned memory is enabled, use `glide-integrity` for its store and learne
 With authorized conversation recovery, follow [Conversation Learning](Conversation%20Learning.md) for captured feedback versus observed behavior, temporary scope and inactive candidates. Clear scoped guidance already given by the owner does not need repeated permission; inferred procedural changes retain the existing review requirements. Record checks actually performed and leave untested effects pending.
 
 Follow [Input and Collaboration](Input%20and%20Collaboration.md) to check whether questions were delivered with enough context in conversation, internal queues became owner homework, or shared documents exceeded their edit scope. Keep findings and receipts internal; surface only the useful decision or correction.
+
+Follow `Recovery.md` for configuration drift, approved local export refresh and backup/restore evidence. Respect recorded deferrals and bring material gaps into conversation.

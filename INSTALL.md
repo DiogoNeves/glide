@@ -169,3 +169,7 @@ Offer [conversation continuity](docs/CONVERSATION-LEARNING.md) with versioned me
 ## Owner-facing input
 
 Install `Checklists/Input and Collaboration.md` with the core instructions. Explain that Glide HQ is agent-maintained and required questions arrive in conversation. Offer a shared document only when useful or requested; agree on a location outside HQ in the owner's normal writing area and its edit scope before creating it. Do not create a second inbox, export internal records, or infer permission from an AI-assisted label. See [input and collaboration](docs/INPUT-AND-COLLABORATION.md).
+
+## Protect and recover this instance
+
+Follow [instance recovery](docs/RECOVERY.md) before claiming setup or upgrade readiness. Install `Checklists/Recovery.md` and the separately hashed shared helper, inventory private dependencies, preserve backup/export choices, create and verify an approved local export, and test a disposable restore with writers/jobs disabled. Report missing off-machine protection in conversation. Embedded instances need this too; a rebuildable SQLite index does not make all local state disposable.
