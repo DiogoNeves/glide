@@ -2,6 +2,8 @@
 
 Use when installing Glide or creating the first useful company context.
 
+Follow [Input and Collaboration](Input%20and%20Collaboration.md) for owner-facing questions, reviews and optional shared documents. Keep internal file maintenance with the agent.
+
 ## Process
 
 1. Inspect available company materials before asking questions.

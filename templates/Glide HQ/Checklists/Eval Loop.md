@@ -4,7 +4,7 @@ Purpose: help Glide improve from real use without telemetry, external storage, a
 
 ## Core Loop
 
-1. Use the system normally.
+1. Observe normal use. The agent maintains this internal log; ask for any useful owner feedback in conversation under `Checklists/Input and Collaboration.md`.
 2. After useful runs, append one tiny row to `Glide HQ/Evals/Run Log.md`.
 3. Tag the row with short facets.
 4. Choose an eval decision: `keep`, `tune`, or `case`.

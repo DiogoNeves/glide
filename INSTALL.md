@@ -150,7 +150,7 @@ As confidence increases, suggest automating more areas gradually with clear appr
 
 ## Optional Versioned Memory
 
-If the user selects versioned memory, follow the complete [setup walkthrough](docs/SETUP.md), [runtime contract](docs/MEMORY-RUNTIME.md) and [existing-instance upgrade procedure](docs/UPGRADING.md). Keep Python and SQLite physically outside the synchronized workspace. Install the four memory skills only with their canonical `Memory Protocol.md`. Record the actual runtime entrypoint and private instance configuration. Leave jobs disabled until verified cutover, and leave automatic learned overlays disabled unless explicitly selected. Existing instances must use the upgrade procedure rather than overwrite installation.
+If the user selects versioned memory, follow the complete [setup walkthrough](docs/SETUP.md), [runtime contract](docs/MEMORY-RUNTIME.md) and [existing-instance upgrade procedure](docs/UPGRADING.md). Keep Python and SQLite physically outside the synchronized workspace. Install the four memory skills only with their canonical `Memory Protocol.md` and `Checklists/Input and Collaboration.md`. Record the actual runtime entrypoint and private instance configuration. Leave jobs disabled until verified cutover, and leave automatic learned overlays disabled unless explicitly selected. Existing instances must use the upgrade procedure rather than overwrite installation.
 
 The optional runtime is pinned to **0.1.0, build `df711b913f09`** in `compatibility.json`. Use a supplied matching Glide checkout/archive with `runtime/package-manifest.json`; the installer must receive the required `--expected-build` flag:
 
@@ -165,3 +165,7 @@ Fresh runtime preferences are `--knowledge-review manual --review-ui text`. Opti
 ## Optional Conversation Continuity
 
 Offer [conversation continuity](docs/CONVERSATION-LEARNING.md) with versioned memory. Install `glide-conversation-learning`, `Conversation Learning.md` and `Conversation Recovery.md`; retain existing source ownership and review settings. Ask which accounts, devices and history sources are authorized for recovery, preserving any existing explicit choices. Live capture of useful current input does not require access to other chats. Install the optional local metadata helper outside the workspace and reuse selected daily/dream/drift jobs; no new permissions or schedules are implied.
+
+## Owner-facing input
+
+Install `Checklists/Input and Collaboration.md` with the core instructions. Explain that Glide HQ is agent-maintained and required questions arrive in conversation. Offer a shared document only when useful or requested; agree on a location outside HQ in the owner's normal writing area and its edit scope before creating it. Do not create a second inbox, export internal records, or infer permission from an AI-assisted label. See [input and collaboration](docs/INPUT-AND-COLLABORATION.md).

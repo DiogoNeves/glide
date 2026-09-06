@@ -6,7 +6,7 @@
 2. Load `Company Context.md`, `Founder Brief.md`, relevant areas, and the relevant checklist.
 3. Model the situation: objective, current state, constraints, stakes, open questions, and evidence.
 4. Check cross-company effects and contradictions.
-5. Recommend, draft, ask, or update Glide HQ.
+5. Recommend, draft, ask in conversation, or update Glide HQ internally. Follow `Checklists/Input and Collaboration.md` for required input and optional shared documents.
 6. Save durable updates as the conversation progresses.
 
 ## Work Modes

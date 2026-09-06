@@ -29,3 +29,7 @@ At cutover, install the appropriate enabled-memory branch in each actual schedul
 ## Optional conversation recovery
 
 When the owner has selected authorized history sources, install `glide-conversation-learning` and both conversation checklists. Daily performs a bounded capture/recovery pass; dream resumes pending coverage and consolidates useful candidates. Founder drift review checks captured feedback against later behavior and the protected principles. Coverage and permitted outputs commit through the existing job transaction; knowledge requiring separate review stays pending until its own application receipt. Follow the [canonical procedure](../templates/Glide%20HQ/Checklists/Conversation%20Learning.md); a bundle checkpoint alone does not prove conversation coverage. Reuse existing schedules and preserve each instance’s account boundaries.
+
+## Deliver required input
+
+Follow [Input and Collaboration](../templates/Glide%20HQ/Checklists/Input%20and%20Collaboration.md). Bring selected questions, manual knowledge reviews and human spot checks into the configured conversation with enough context to answer there. Internal Now/Ongoing/Durable views and queues are agent-maintained. If delivery is unavailable, retain a pending request and report the delivery gap when possible; saving a queue item is not proof the owner saw it. Keep optional shared documents outside HQ in an authorized writing location.

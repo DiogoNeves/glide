@@ -95,7 +95,7 @@ Read the resulting `Records/` page and `Views/Durable.md`. It should link back t
 
 ## 3. Install the protocol and skills on each device
 
-Copy the selected distribution's `templates/Glide HQ/Memory Protocol.md` and four `skills/glide-{memory,dream,review,integrity}` folders after inspecting the destination. The Obsidian equivalent is `templates/Agent HQ/Memory Protocol.md`. Merge existing installations using their recorded baseline; never overwrite local customization just because a new package exists.
+Copy the selected distribution's `templates/Glide HQ/Memory Protocol.md`, `templates/Glide HQ/Checklists/Input and Collaboration.md` and four `skills/glide-{memory,dream,review,integrity}` folders after inspecting the destination. The Obsidian equivalent is `templates/Agent HQ/Memory Protocol.md`. Merge existing installations using their recorded baseline; never overwrite local customization just because a new package exists.
 
 For Codex, skills belong in `.agents/skills/` or another supported local discovery location; for Claude Code use `.claude/skills/`. Record installed paths and content hashes in the private installation manifest. Install code and dependencies outside the synchronized workspace. Device-specific skill discovery/configuration must be checked on each machine; hidden folders are not an Obsidian Sync installation strategy.
 
@@ -179,3 +179,7 @@ Keep or remove only the disposable directory you created, after inspecting its p
 ## Optional conversation continuity
 
 For meaningful conversational capture and optional history recovery, follow [Conversation Learning](CONVERSATION-LEARNING.md). Install its skill and both checklists; select authorized history sources independently of knowledge-review mode. Install the metadata helper outside the workspace only when local Codex discovery is wanted. Existing schedules can run the bounded recovery branch after their prompts are explicitly updated; installing templates alone changes no job.
+
+## Owner-facing input
+
+Install [Input and Collaboration](INPUT-AND-COLLABORATION.md) and its canonical checklist with the memory protocol. Setup verification may inspect internal records; normal use never depends on the owner editing them. Required questions and spot checks arrive in conversation. Choose an external collaboration destination only when a shared document is useful, with clear AI attribution and explicit edit scope.

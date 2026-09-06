@@ -2,6 +2,8 @@
 
 Purpose: review company progress, decisions, metrics, follow-through, and the coming week's operating focus.
 
+Follow [Input and Collaboration](Input%20and%20Collaboration.md) for owner-facing questions, reviews and optional shared documents. Keep internal file maintenance with the agent.
+
 ## Review
 
 1. What changed this week?

@@ -2,6 +2,8 @@
 
 Purpose: prevent important promises, waiting threads, and commitments from disappearing.
 
+Follow [Input and Collaboration](Input%20and%20Collaboration.md) for owner-facing questions, reviews and optional shared documents. Keep internal file maintenance with the agent.
+
 ## Review
 
 1. Read `Follow-Through Ledger.md`.

@@ -64,6 +64,8 @@ Each week, prepare two uncertain cases and one ordinary case for human spot chec
 
 ## Display And Interaction
 
+Follow [Input and Collaboration](Checklists/Input%20and%20Collaboration.md): HQ views, queues, proposals and receipts are agent-maintained. Bring required input into conversation; optional shared documents belong in the owner's chosen writing area with clear AI attribution and bounded edit authority.
+
 Use readable, valid, collision-safe filenames. The Obsidian adapter does not repeat the filename as an H1 inside generated notes. Do not normalize original titles.
 
 Show a review's claim, supporting passage, counterevidence, proposed change and affected records. Distinguish preview selection from submission and confirmed application. Controls must submit a proposal ID and revision to an available conversation/tool bridge. If that bridge is unavailable, use a clear conversational decision; do not simulate a successful mutation.

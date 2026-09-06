@@ -49,3 +49,7 @@ For source control or Obsidian transport, follow [STORAGE-AND-GIT.md](STORAGE-AN
 ## Conversational continuity
 
 For an instance whose owner selects conversation continuity, follow [Conversation Learning](CONVERSATION-LEARNING.md). Replace optional creation-date snippet scanning with bounded task/message recovery and explicit coverage where history is authorized. Preserve source permissions, schedules, models and protected principles; install executable helpers outside the workspace. Record the first capture and inspected coverage rather than claiming the whole archive has been reviewed. The helper is separate from the pinned core runtime; no schema or data migration is needed.
+
+## Keep input outside internal memory
+
+Merge the [input and collaboration boundary](INPUT-AND-COLLABORATION.md) into active instructions, review skills, daily/weekly/decision checklists and actual authorized automation prompts. Keep existing internal history and queues in place. Inspect active requests that send the owner to edit HQ and deliver those questions in conversation; relocate only a specifically needed collaborative surface into the owner's chosen writing area, preserving source text and links. No runtime/schema migration, mass export or new write permission is implied. Record prior hashes for rollback and verify the next real input request.

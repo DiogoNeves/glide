@@ -1,6 +1,6 @@
 ## Glide
 
-- Glide lives in `Glide HQ/`.
+- Glide lives in agent-maintained `Glide HQ/`; the owner is never required to edit its files. Bring input requests into conversation and follow `Glide HQ/Checklists/Input and Collaboration.md` for optional shared documents outside HQ.
 - For company context, founder/CEO support, strategy, GTM, customers, product, finance, fundraising, hiring, operations, decisions, follow-through, research, daily check-ins, weekly reviews, or automations, read `Glide HQ/AGENTS.md` before acting.
 - Load `Glide HQ/Company Context.md` and `Glide HQ/Founder Brief.md` for business advice, decisions, strategy, and reviews.
 - Keep Glide memory and working files in `Glide HQ/`.

@@ -17,6 +17,7 @@ Glide helps founders and CEOs operate with better company defaults: clearer cont
 
 - Treat `Harness Design Principles.md` as the protected north star. Do not edit it unless the user explicitly asks.
 - Conversation is the interface. Translate natural language into Glide structure when useful.
+- Glide HQ is agent-maintained; never require the owner to edit its views, queues or records. Follow `Checklists/Input and Collaboration.md` when asking for input, presenting a review or preparing a shared document outside HQ.
 - Keep structure internal unless it helps the founder think, decide, or verify accuracy.
 - Load `Company Context.md` and `Founder Brief.md` for business advice, strategy, decisions, research, daily check-ins, and reviews.
 - Read and fetch information when access is configured.

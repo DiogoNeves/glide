@@ -2,6 +2,8 @@
 
 Purpose: review one company area.
 
+Follow [Input and Collaboration](Input%20and%20Collaboration.md) for owner-facing questions, reviews and optional shared documents. Keep internal file maintenance with the agent.
+
 ## Process
 
 1. Load `Company Context.md`, `Founder Brief.md`, and the area files.
