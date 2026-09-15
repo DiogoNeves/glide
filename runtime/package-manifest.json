@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "version": "0.1.0",
-  "build": "df711b913f09",
+  "build": "83c6ad3a80a8",
   "files": {
     "glide_memory/__init__.py": "8fbaaddb1d7d75d77f19b77ae1a9104606110792054f283f20d43276d9787e7a",
     "glide_memory/__main__.py": "d3bb63da3ec743f04355890a8013cf675b0dc9673afea974c39fe0d177a86468",
@@ -18,6 +18,6 @@
     "glide_memory/review.html": "60549d9ede6b0cc403d75156abaa822644563d8a7433794e7712c4702d89d048",
     "glide_memory/review.py": "f5c0eb39554acb061b4c89d7baf992f9f9b6a02609672bad92a95004bc3e04e6",
     "glide_memory/runner.py": "c3b4a1c325a2126059db4900a11fbd95dad79f4b7de7d32140eed53c1842a4b5",
-    "glide_memory/store.py": "7ede88ca3ddbaeb979b6d4200b86b86e3aeaa48c1e95c23be240b9854f5fc8ba"
+    "glide_memory/store.py": "d07e97dc77e7ca09ce4d4f1176fb2c19e8a3ea378fae78a6f70eb92cf7dabe15"
   }
 }

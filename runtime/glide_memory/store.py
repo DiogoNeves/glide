@@ -56,6 +56,48 @@ def digest(value) -> str:
     return hashlib.sha256(canonical(value).encode()).hexdigest()
 
 
+def obsidian_link_shape(text: str) -> str:
+    """Ignore navigation targets, never labels, anchors, code or payload bytes.
+
+    Obsidian rewrites wiki-link destinations when a note moves. These are a
+    presentation change only: callers still read records from validated payloads.
+    Keep this conservative; an unsupported Markdown construct fails closed.
+    """
+    visible, marker, payload = text.partition(MARKER)
+    shaped = []
+    fence = None
+    for line in visible.splitlines(keepends=True):
+        stripped = re.sub(r"^(?:[ \t]*>[ \t]?)*", "", line).lstrip()
+        opening = re.match(r"(`{3,}|~{3,})", stripped)
+        if fence:
+            shaped.append(line)
+            if opening and opening[1][0] == fence[0] and len(opening[1]) >= len(fence) and not stripped[len(opening[1]):].strip():
+                fence = None
+            continue
+        if opening:
+            fence = opening[1]
+            shaped.append(line)
+            continue
+        # Indented code and inline code are not renameable links. Skip lines
+        # with backticks rather than interpreting a partial Markdown grammar.
+        if line.startswith(("    ", "\t")) or "`" in line:
+            # Generated evidence lines contain inline metadata after the link;
+            # protect each code span and normalize only the preceding text.
+            prefix, tick, remainder = line.partition("`")
+            if line.startswith(("    ", "\t")):
+                shaped.append(line)
+                continue
+        else:
+            prefix, tick, remainder = line, "", ""
+        prefix = re.sub(
+            r"(?<![\\\[])\[\[([^\[\]#|\r\n]+)([^\[\]\r\n]*)\]\]",
+            lambda m: "[[" + "\x00" + m[2] + "]]" if m[1].strip() else m[0],
+            prefix,
+        )
+        shaped.append(prefix + tick + remainder)
+    return "".join(shaped) + marker + payload
+
+
 def file_hash(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -273,9 +315,11 @@ class Store:
         path = no_symlinks(self.state_dir / "writer.lock")
         with path.open("a") as handle:
             fcntl.flock(handle.fileno(), fcntl.LOCK_EX)
+            self._locked = True
             try:
                 yield
             finally:
+                self._locked = False
                 fcntl.flock(handle.fileno(), fcntl.LOCK_UN)
 
     def _save_config(self):
@@ -338,13 +382,15 @@ class Store:
         bundles = []
         children = {}
         seen_hashes = set()
+        presentations = []
         for path in sorted(safe_child(self.store, "Bundles").glob("*.md")):
             bundle = read_payload(path)
             body = {k: v for k, v in bundle.items() if k != "hash"}
             if bundle.get("schema") != SCHEMA or bundle.get("instance_id") != self.config["instance_id"] or digest(body) != bundle.get("hash"):
                 raise IntegrityError(f"Invalid bundle hash, schema, or instance: {path.name}")
-            if path.read_text() != self._bundle_markdown(bundle):
-                raise IntegrityError(f"Bundle Markdown differs from its canonical payload: {path.name}")
+            actual, expected = path.read_text(), self._bundle_markdown(bundle)
+            if actual != expected:
+                presentations.append((path, actual, expected))
             expected_name = f"{bundle['sequence']:08d}-{bundle['hash']}.md"
             if path.name != expected_name:
                 raise IntegrityError("Unexpected or duplicated bundle filename")
@@ -377,7 +423,82 @@ class Store:
             parent = bundle["hash"]
         if children:
             raise IntegrityError("Incomplete sync: missing predecessor or disconnected history")
-        return {"bundles": bundles, "records": records, "sources": sources, "idempotency": idempotency, "head": parent}
+        loaded = {"bundles": bundles, "records": records, "sources": sources, "idempotency": idempotency, "head": parent}
+        evidence = self._rename_evidence(loaded)
+        updates = []
+        for path, actual, expected in presentations:
+            renames = self._verified_link_renames(actual, expected, evidence)
+            if not renames:
+                raise IntegrityError(f"Bundle Markdown differs from its canonical payload: {path.name}")
+            updates.append({"path": path.relative_to(self.store).as_posix(), "renames": renames, "restored": False})
+        # Only the designated writer, under its existing lock, restores the
+        # original rendering. Read-only readers never alter synchronized history.
+        if updates and getattr(self, "_locked", False) and self.config.get("writer_active"):
+            self._require_writer()
+            for (path, actual, expected), update in zip(presentations, updates):
+                if path.read_text() != actual:
+                    raise ConflictError("Bundle changed during rename reconciliation; retry")
+                backup = safe_child(self.state_dir, "rename-recovery/" + hashlib.sha256(actual.encode()).hexdigest() + ".md")
+                atomic_write(backup, actual, immutable=True)
+                atomic_write(path, expected)
+                update["restored"] = True
+        loaded["obsidian_link_updates"] = updates
+        return loaded
+
+    @staticmethod
+    def _rename_evidence(loaded):
+        evidence = list(loaded["sources"].values())
+        for bundle in loaded["bundles"]:
+            evidence.extend(bundle["sources"])
+            for record in bundle["records"]:
+                for field in ("sources", "commitment_evidence", "delivery_evidence", "completion_evidence"):
+                    evidence.extend(record.get(field, []))
+                for claim in record.get("claims", []):
+                    evidence.extend(claim.get("sources", []))
+        return evidence
+
+    def _verified_link_renames(self, actual, expected, evidence):
+        """Admit only a missing source moved to one byte-identical destination."""
+        if self.adapter != "obsidian" or actual == expected or obsidian_link_shape(actual) != obsidian_link_shape(expected):
+            return []
+        pattern = r"\[\[([^\[\]#|\r\n]+)([^\[\]\r\n]*)\]\]"
+        old_links, new_links = list(re.finditer(pattern, expected)), list(re.finditer(pattern, actual))
+        if len(old_links) != len(new_links):
+            return []
+        verified = []
+        for old, new in zip(old_links, new_links):
+            if old[0] == new[0]:
+                continue
+            if old[2] != new[2]:
+                return []
+            old_target, new_target = old[1], new[1]
+            if any(c in new_target for c in ("\\", ":")) or any(p.startswith(".") for p in PurePosixPath(new_target).parts):
+                return []
+            matched = {}
+            for source in evidence:
+                path = source.get("path", "")
+                if path and old_target.removesuffix(".md") in {str(PurePosixPath(path).with_suffix("")), PurePosixPath(path).stem}:
+                    matched.setdefault(path, set()).add(source["sha256"])
+            if len(matched) != 1:
+                return []
+            old_path, hashes = next(iter(matched.items()))
+            if safe_child(self.vault, old_path).exists():
+                return []
+            if "/" in new_target:
+                candidates = [safe_child(self.vault, new_target if new_target.endswith(".md") else new_target + ".md")]
+            else:
+                candidates = [p for p in self.vault.rglob("*.md") if p.stem == new_target.removesuffix(".md") and not any(part.startswith(".") for part in p.relative_to(self.vault).parts)]
+            candidates = [p for p in candidates if p.is_file() and not p.is_relative_to(self.store)]
+            if len(candidates) != 1:
+                return []
+            destination = no_symlinks(candidates[0])
+            fingerprint = file_hash(destination)
+            if fingerprint not in hashes:
+                return []
+            rename = {"from": old_path, "to": destination.relative_to(self.vault).as_posix(), "sha256": fingerprint}
+            if rename not in verified:
+                verified.append(rename)
+        return verified
 
     def _retained_evidence(self, loaded, additional_records=()):
         retained = set()
@@ -547,7 +668,7 @@ class Store:
             path = safe_child(self.store, f"Proposals/{pid}.md")
             if path.exists():
                 existing = read_payload(path)
-                if existing.get("proposal_id") != pid or path.read_text() != self._proposal_markdown(existing):
+                if existing.get("proposal_id") != pid or not self._proposal_presentation_matches(path.read_text(), existing, loaded):
                     raise IntegrityError("Proposal has unexpected edits")
                 return existing
             proposal = {**stable, "proposal_id": pid, "created_at": now()}
@@ -560,9 +681,17 @@ class Store:
         path = safe_child(self.store, f"Proposals/{proposal_id}.md")
         proposal = read_payload(path)
         stable = {k: v for k, v in proposal.items() if k not in {"proposal_id", "created_at"}}
-        if digest(stable) != proposal_id or proposal.get("instance_id") != self.config["instance_id"] or path.read_text() != self._proposal_markdown(proposal):
+        if digest(stable) != proposal_id or proposal.get("instance_id") != self.config["instance_id"] or not self._proposal_presentation_matches(path.read_text(), proposal):
             raise IntegrityError("Proposal hash, instance or rendered content mismatch")
         return proposal
+
+    def _proposal_presentation_matches(self, actual, proposal, loaded=None):
+        expected = self._proposal_markdown(proposal)
+        if actual == expected:
+            return True
+        loaded = loaded if loaded is not None else self._load()
+        # Only committed evidence can corroborate a rename in a pending review.
+        return bool(self._verified_link_renames(actual, expected, self._rename_evidence(loaded)))
 
     def _knowledge_ingestion_policy(self, proposal, decision, loaded):
         settings = self.review_settings()
@@ -840,8 +969,43 @@ class Store:
             relative = path.relative_to(self.store).as_posix()
             no_symlinks(path)
             if relative not in allowed or file_hash(path) not in allowed[relative]:
-                raise ConflictError(f"Unexpected generated-page edit; reconcile without overwriting: {relative}")
+                actual = path.read_text()
+                match = None
+                for expected in self._historical_presentations(loaded, relative):
+                    renames = self._verified_link_renames(actual, expected, self._rename_evidence(loaded))
+                    if renames:
+                        match = (expected, renames)
+                        break
+                if match is None:
+                    raise ConflictError(f"Unexpected generated-page edit; reconcile without overwriting: {relative}")
+                update = {"path": relative, "renames": match[1], "restored": False}
+                if getattr(self, "_locked", False) and self.config.get("writer_active"):
+                    self._require_writer()
+                    if path.read_text() != actual:
+                        raise ConflictError("Generated page changed during rename reconciliation; retry")
+                    backup = safe_child(self.state_dir, "rename-recovery/" + hashlib.sha256(actual.encode()).hexdigest() + ".md")
+                    atomic_write(backup, actual, immutable=True)
+                    atomic_write(path, match[0])
+                    update["restored"] = True
+                loaded.setdefault("obsidian_link_updates", []).append(update)
         return allowed
+
+    def _historical_presentations(self, loaded, relative):
+        if relative.startswith("Records/"):
+            for bundle in reversed(loaded["bundles"]):
+                for record in bundle["records"]:
+                    if record["path"] == relative:
+                        yield self._record_markdown(record)
+        elif relative.startswith("Views/"):
+            prefix = {"records": {}, "bundles": [], "head": None}
+            yield self._projections(prefix, include_records=False).get(relative, "")
+            for bundle in loaded["bundles"]:
+                prefix["bundles"].append(bundle)
+                prefix["head"] = bundle["hash"]
+                prefix["records"].update({r["id"]: r for r in bundle["records"]})
+                yield self._projections(prefix, include_records=False).get(relative, "")
+                if relative == "Views/Now.md":
+                    yield self._projections(prefix, include_records=False, include_due_reviews=False)[relative]
 
     def _publish(self, loaded):
         self._check_projections(loaded)
@@ -1150,7 +1314,7 @@ class Store:
                         index_status = "current" if check == "ok" and self._index_matches(db, loaded) else "stale-or-corrupt"
                 except sqlite3.Error:
                     index_status = "stale-or-corrupt"
-            return {"ok": not stale and index_status == "current", "head": loaded["head"], "bundles": len(loaded["bundles"]), "records": len(loaded["records"]), "sources": len(loaded["sources"]), "stale_projections": stale, "source_warnings": warnings, "index": index_status, "source_protection": "broker-path-validation-only; OS isolation must be verified separately", "review_settings": self.review_settings()}
+            return {"ok": not stale and index_status == "current", "head": loaded["head"], "bundles": len(loaded["bundles"]), "records": len(loaded["records"]), "sources": len(loaded["sources"]), "stale_projections": stale, "source_warnings": warnings, "obsidian_link_updates": loaded["obsidian_link_updates"], "index": index_status, "source_protection": "broker-path-validation-only; OS isolation must be verified separately", "review_settings": self.review_settings()}
 
     def backup(self, destination):
         """Create a completed database snapshot and compatibility manifest outside the vault."""
