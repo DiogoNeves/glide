@@ -5,8 +5,6 @@
   "author": {
     "name": "Glide contributors"
   },
-  "homepage": "https://github.com/DiogoNeves/glide",
-  "repository": "https://github.com/DiogoNeves/glide",
   "license": "MIT",
   "skills": "./skills"
 }

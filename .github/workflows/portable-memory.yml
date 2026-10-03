@@ -37,6 +37,10 @@ jobs:
         run: |
           python -B tools/check_distribution.py
           python -B -m unittest discover -s tests -p test_distribution_contracts.py -v
+      - name: Public file privacy tripwires
+        run: |
+          python -B tools/check_public_privacy.py
+          python -B -m unittest discover -s tests -p test_public_privacy.py -v
       - name: Content pin and clean default installation
         run: python runtime/check_package.py
       - name: Build and exercise installed wheel assets

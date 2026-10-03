@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.7.1 (2026-10-03)
+
+- Remove identifying repository-owner links from public documentation, update templates and optional plugin metadata.
+- Resolve shared documentation from a verified owner checkout and keep upstream repository selection configurable.
+- Add shared tracked-file privacy checks for owner identifiers, emails, home paths and private artifacts, with an optional denylist stored outside the repository.
+- Preserve runtime content builds, storage format, source permissions and workflow behavior.
+
 ## v0.7.0 (2026-10-03)
 
 - Condense the founder/CEO HQ entrypoints into conditional workflow routes, keeping their original detail as optional references and preserving all public skill names and protected principles.

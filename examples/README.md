@@ -21,4 +21,4 @@ The agent reads company context, metrics notes, decision log, and recent follow-
 
 ## Portable memory examples
 
-Start with [the setup walkthrough](../docs/SETUP.md), then [validation](../docs/VALIDATION.md). Behavior specifications in `memory-evaluation-cases.json` are synthetic cases, not a record that a model passed. The shared runtime's [model screen](https://github.com/DiogoNeves/glide/tree/main/examples/model-screen) includes actual synthetic results and an explicit opt-in runner; use the matching local checkout for unpublished builds.
+Start with [the setup walkthrough](../docs/SETUP.md), then [validation](../docs/VALIDATION.md). Behavior specifications in `memory-evaluation-cases.json` are synthetic cases, not a record that a model passed. The shared runtime's [model screen](model-screen/README.md) includes actual synthetic results and an explicit opt-in runner; use the matching local checkout for unpublished builds.

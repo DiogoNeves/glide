@@ -33,7 +33,7 @@ Install the skill and both checklists as one unit. Create `conversation-intake.j
     "path": "/absolute/local/glide/tools/conversation_inventory.py",
     "codex_home": "/absolute/private/codex-history",
     "sha256": "VERIFIED_INSTALLED_FILE_SHA256",
-    "repository": "https://github.com/DiogoNeves/glide",
+    "repository": "VERIFIED_SOURCE_REPOSITORY_URL",
     "source_commit": "REVIEWED_FULL_COMMIT_SHA"
   },
   "installed_at": "ACTUAL_INSTALLATION_TIMESTAMP",
