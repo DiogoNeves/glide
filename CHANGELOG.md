@@ -1,5 +1,18 @@
 # Changelog
 
+## v0.7.0 (2026-10-03)
+
+- Condense the founder/CEO HQ entrypoints into conditional workflow routes, keeping their original detail as optional references and preserving all public skill names and protected principles.
+
+- Add explicit bounded record-body reads with exact revision continuations and a complete-read fallback; existing full reads remain the default.
+- Reject partial read windows as complete proposed records, preserving evidence and graph metadata.
+- Add optional private MCP capability profiles that filter both advertised tools and dispatch; omitted profiles preserve existing capabilities.
+- Maintain concise common memory/recovery contracts in one owner source, with deterministic generated copies and local-edit protection.
+- Check active example/document build references and generated contracts for drift. Retain the preceding full operating protocol as an optional reference.
+- Keep runtime version 0.1.0, immutable format 1, source permissions, provider choices and schedules unchanged.
+- Add an opt-in, synthetic paired behavior screen with explicit model/data opt-ins and seven fake-CLI tests; keep model calls out of CI.
+- Clarify evidence-grounded drafts and complete atomic job calls; preserve measured limitations and earlier failed screen receipts.
+
 ## 2026-09-15
 
 ### Handle verified Obsidian source renames

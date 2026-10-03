@@ -1,36 +1,21 @@
 # Operating Manual
 
-## Loop
+Identify the objective, current state, constraints, stakes and evidence. Select the matching route, check effects on other company domains, then recommend, draft, ask or update internal state within the task's authority. Save durable answers as the conversation progresses; receipts establish persistence.
 
-1. Talk with the founder naturally and infer the work mode.
-2. Load `Company Context.md`, `Founder Brief.md`, relevant areas, and the relevant checklist.
-3. Model the situation: objective, current state, constraints, stakes, open questions, and evidence.
-4. Check cross-company effects and contradictions.
-5. Recommend, draft, ask in conversation, or update Glide HQ internally. Follow `Checklists/Input and Collaboration.md` for required input and optional shared documents.
-6. Save durable updates as the conversation progresses.
+| Work | Read when selected |
+| --- | --- |
+| Initial company context | [Company Context Setup](Checklists/Company%20Context%20Setup.md) |
+| Company context changes | [Update Company Context](Checklists/Update%20Company%20Context.md) |
+| Daily founder check-in | [Daily Founder Check-In](Checklists/Daily%20Founder%20Check-In.md) |
+| Weekly CEO review | [Weekly CEO Review](Checklists/Weekly%20CEO%20Review.md) |
+| Promises and waiting threads | [Follow-Through Review](Checklists/Follow-Through%20Review.md) |
+| Important choice | [Decision Packet](Checklists/Decision%20Packet.md) |
+| Operating domain | [Area Review](Checklists/Area%20Review.md), then the selected area's instructions |
+| Research | [Research instructions](Research/AGENTS.md) |
+| Nightly research review | [Nightly Founder Research Review](Checklists/Nightly%20Founder%20Research%20Review.md) |
+| Upstream changes | [Glide Update Check](Checklists/Glide%20Update%20Check.md) |
+| Harness drift | [Founder Drift Review](Checklists/Founder%20Drift%20Review.md) |
 
-## Work Modes
+Read [Memory Protocol](Memory%20Protocol.md) only for explicitly enabled versioned memory; its conditional routes cover conversation learning, Dream, integrity, overlays and recovery. Without memory cutover, the selected checklist's named company, founder, ledger, decision, question and contradiction files remain the operating layer. [Earlier manual](Reference/Operating%20Manual.md) retains the complete file translation map for setup and legacy maintenance.
 
-- Company context setup: use `Checklists/Company Context Setup.md`.
-- Company context update: use `Checklists/Update Company Context.md`.
-- Daily founder check-in: use `Checklists/Daily Founder Check-In.md`.
-- Weekly CEO review: use `Checklists/Weekly CEO Review.md`.
-- Follow-through review: use `Checklists/Follow-Through Review.md`.
-- Decision support: use `Checklists/Decision Packet.md`.
-- Area review: use `Checklists/Area Review.md`.
-- Research: use `Research/AGENTS.md`.
-- Nightly founder research review: use `Checklists/Nightly Founder Research Review.md`.
-- Glide update check: use `Checklists/Glide Update Check.md`.
-- Drift review: use `Checklists/Founder Drift Review.md`.
-
-## Translation Layer
-
-- Company facts become `Company Context.md`.
-- Founder preferences become `Founder Brief.md` or `Communication Preferences.md`.
-- Promises and waiting threads become `Follow-Through Ledger.md`.
-- Important decisions become `Decision Log.md`.
-- Missing context becomes `Questions Queue.md`.
-- Tensions become `Contradiction Register.md`.
-- Research needs become `Research/Research Index.md` or area research notes.
-
-Keep updates in `Glide HQ/` unless the user asks to edit external docs.
+Use [Input and Collaboration](Checklists/Input%20and%20Collaboration.md) when owner input or a shared document is needed. Preparing a draft grants no external execution authority.

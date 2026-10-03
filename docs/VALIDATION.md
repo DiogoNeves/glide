@@ -1,5 +1,15 @@
 # Validate a Glide installation
 
+## Streamlining validation (2026-10-03)
+
+Runtime content build `90331b72c53d` ran **163 tests: 162 passed and one host-boundary check skipped** because `GLIDE_CODEX_SANDBOX_EXECUTABLE` was unset. The 13 new runtime regressions cover exact body-window reconstruction, revision-pinned expansion after a later write, complete evidence/graph metadata, refusal to persist partial records, preserved default tool names, fixed adapter extensions, explicit capability filtering and fail-closed configuration.
+
+The separate helper/distribution suite passed **30 tests**, including original reference/principle preservation, complete workflow routing, local-edit protection, stale installation examples and companion runtime pairing. The five existing model-screen wrapper tests and seven paired-screen wrapper tests passed without calling a model. Content-pin installation checks and an isolated offline wheel check passed; the installed wheel exercised review rendering, the new bounded reader, default capability inventory and packaged native-helper imports. Local packaging used the existing Python 3.13 environment with setuptools 80.9.0 and wheel 0.47.0; pyenv Python 3.12.9 lacks that build backend. A separate six-test runner execution passed, including the real synthetic filesystem-boundary probe, with the app-bundled Codex 0.160.0 executable. Homebrew Codex 0.133.0 lacks the required named-profile option and its explicit probe returned unavailable with unchanged source bytes; it was not counted as a pass. Real native-source permissions and a second physical host were not exercised. Public model-screen results are recorded separately in [STREAMLINING-EVALUATION.md](STREAMLINING-EVALUATION.md).
+
+An isolated copied store with 361 bundles and 97 records produced identical complete exports under the old and candidate runtimes. Three local samples showed similar load/search timings; no latency improvement is claimed. Canonical rendering and index/source validation dominated the profile, so their tamper detection remains unchanged. A 2,000-character body window reduced the largest receipt response from 95,764 to 4,141 JSON bytes. Two operational records with substantial evidence metadata decreased only about 26% in total response size. These are measured fixture examples, not general savings estimates: body windows preserve all metadata and do not bound total response size.
+
+The compact founder/CEO instructions, manual, preferences, memory protocol and recovery entrypoints decreased from 3,358 to 1,071 whitespace-separated words; the original detail remains byte-preserved as optional reference. This measures the active entrypoints, not total repository size or token use in an actual run. All 18 public skill names and the protected design principles remain unchanged. Capability profiles are opt-in; the absent setting retains the complete existing tool surface. Store format and runtime version remain 1 and 0.1.0.
+
 ## Obsidian rename recovery (2026-09-15)
 
 Runtime build `83c6ad3a80a8` ran 150 tests: 149 passed and one host-boundary check skipped. Eleven rename regressions cover read-only access, locked writer recovery, private backups, continued writes, pending proposals, ambiguous or edited destinations, symlinks, and protected payload/code/prose. Both distribution content pins and clean installations passed. Companion build `1a36a228f2b2` passed 28 tests; conversation inventory passed 14 and recovery exports passed 8. An independent index rebuilt from copied Markdown preserved the complete export before and after automatic recovery.
@@ -28,6 +38,8 @@ Run the non-model package checks from the owner checkout:
 ```sh
 python3 runtime/check_package.py --compatibility /absolute/path/to/glide-obsidian/compatibility.json
 python3 runtime/check_wheel.py
+python3 -B tools/check_distribution.py
+python3 -B -m unittest discover -s tests -v
 python3 -m unittest discover -s examples/model-screen -p 'test_*.py' -v
 ```
 

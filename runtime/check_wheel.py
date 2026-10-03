@@ -31,6 +31,8 @@ def check(runtime):
         smoke='''from pathlib import Path
 from glide_memory import Store
 from glide_memory.review import render_review
+from glide_memory.bridge import MemoryServer
+from glide_memory.readers import record_window
 from glide_memory.helpers import export_recent_notes, sync_voice_memos, codex_day_context
 import tempfile, hashlib
 with tempfile.TemporaryDirectory() as temp:
@@ -43,7 +45,11 @@ with tempfile.TemporaryDirectory() as temp:
     proposal=store.propose([{'id':'knowledge:wheel','title':'Wheel check','kind':'knowledge','origin':'ai','status':'active','body':'Synthetic packaging check.','sources':[evidence]}],expected_revisions={'knowledge:wheel':0},idempotency_key='wheel-check',rationale='Verify installed package')
     rendered=render_review(store,proposal['proposal_id'])
     assert isinstance(rendered,str) and 'Wheel check' in rendered
-print('Installed wheel review and native-helper imports passed')
+    window=record_window({'body':'Synthetic packaging check.', 'recorded_at':'2026-01-01T00:00:00Z','revision':1},record_id='knowledge:wheel',max_chars=9)
+    assert window['body']=='Synthetic' and window['read_window']['next_args']['expected_revision']==1
+    server=MemoryServer(store)
+    assert len(server.enabled_tools())==20
+print('Installed wheel review, bounded reader, capability inventory and native-helper imports passed')
 '''
         result=subprocess.run([sys.executable,'-c',smoke],cwd=root,env={**env,'PYTHONPATH':str(installed)},capture_output=True,text=True,check=True)
         print(result.stdout.strip())

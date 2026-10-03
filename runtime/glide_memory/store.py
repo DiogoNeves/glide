@@ -563,6 +563,8 @@ class Store:
         return result
 
     def _normalize_record(self, record, previous=None):
+        if "read_window" in record:
+            raise StoreError("A bounded read is not a complete revised record; expand it before proposing")
         allowed = {"id", "title", "kind", "body", "origin", "review", "valid_from", "valid_until", "status", "sources", "relationships", "claims", "due_at", "review_at", "completion_evidence", "commitment_evidence", "delivery_evidence", "supersedes", "tags", "path", "revision", "recorded_at"}
         unknown = set(record) - allowed
         if unknown:
@@ -1250,7 +1252,8 @@ class Store:
                     break
             return results
 
-    def get(self, record_id, *, at=None):
+    def get(self, record_id, *, at=None, expected_revision=None, start_line=None,
+            start_offset=None, max_lines=None, max_chars=None):
         loaded = self._load()
         if at is None:
             result = loaded["records"].get(record_id)
@@ -1263,7 +1266,17 @@ class Store:
                 result = next((r for r in bundle["records"] if r["id"] == record_id), result)
         if result is None:
             raise StoreError("Record not found at the requested recorded time")
-        return record_metadata(result)
+        if expected_revision is not None:
+            if isinstance(expected_revision, bool) or not isinstance(expected_revision, int) or expected_revision < 1:
+                raise StoreError("Expected revision must be a positive integer")
+            if result["revision"] != expected_revision:
+                raise ConflictError("Record revision changed; reload before expanding")
+        annotated = record_metadata(result)
+        if any(value is not None for value in (start_line, start_offset, max_lines, max_chars)):
+            from .readers import record_window
+            return record_window(annotated, record_id=record_id, at=at, start_line=start_line,
+                                 start_offset=start_offset, max_lines=max_lines, max_chars=max_chars)
+        return annotated
 
     def history(self, record_id=None):
         loaded = self._load()

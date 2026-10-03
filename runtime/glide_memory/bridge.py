@@ -53,7 +53,7 @@ LIMIT = {"type": "integer", "minimum": 1, "maximum": 200}
 OVERLAY = obj({"retrieval_aliases": {"type": "object", "additionalProperties": array(string(), 3)}, "context_priority": array(string(), 12)})
 TOOLS = [
     ("glide_search", "Search source-backed memory. Open the returned evidence before relying on a hit.", obj({"query": string(), "limit": LIMIT, "include_sources": {"type": "boolean"}, "kind": string(), "valid_at": string(), "recorded_at": string()}, ("query",)), True),
-    ("glide_get", "Read one memory record, optionally at a recorded-time cutoff.", obj({"record_id": string(), "at": string()}, ("record_id",)), True),
+    ("glide_get", "Read a complete record by default, or an explicit bounded body window. Windows retain evidence/revision metadata and exact expansion arguments; never submit them as complete records.", obj({"record_id": string(), "at": string(), "expected_revision": {"type": "integer", "minimum": 1}, "start_line": {"type": "integer", "minimum": 1}, "start_offset": {"type": "integer", "minimum": 0}, "max_lines": {"type": "integer", "minimum": 1, "maximum": 500}, "max_chars": {"type": "integer", "minimum": 1, "maximum": 32768}}, ("record_id",)), True),
     ("glide_history", "Read revision history; results are chronological, with a continuation cursor.", obj({"record_id": string(), "limit": LIMIT, "cursor": string()}), True),
     ("glide_changes_since", "Read committed changes after a bundle or recorded-time cursor. Does not advance a job checkpoint.", obj({"cursor": string(), "limit": LIMIT}), True),
     ("glide_propose", "Submit complete revised records with exact evidence and expected prior revisions. Does not apply them.", obj({"records": array(RECORD), "expected_revisions": REVISIONS, "rationale": string(), "idempotency_key": string(minLength=1)}, ("records", "expected_revisions", "rationale", "idempotency_key")), False),
@@ -80,6 +80,14 @@ TOOLS.extend([
     ("glide_overlay_rollback", "Restore the previous typed overlay and retain a rollback receipt. Does not change core skills, goals, permissions or schedules.", obj({"evidence": array(SOURCE), "rationale": string(minLength=1), "idempotency_key": string(minLength=1)}, ("evidence", "rationale", "idempotency_key")), False),
 ])
 TOOL_MAP = {name: (description, schema, readonly) for name, description, schema, readonly in TOOLS}
+TOOL_CAPABILITIES = {
+    "reader": {"glide_search", "glide_get", "glide_history", "glide_changes_since", "glide_verify", "glide_read_source"},
+    "writer": {"glide_propose", "glide_apply"},
+    "jobs": {"glide_job_inputs", "glide_job_input_page", "glide_finish_job"},
+    "source_intake": {"glide_index_sources", "glide_intake"},
+    "native_capture": {"glide_apple_notes_metadata", "glide_apple_notes_export", "glide_capture_export", "glide_voice_memos_sync"},
+    "overlays": {"glide_overlay_evaluate", "glide_overlay_activate", "glide_overlay_rollback"},
+}
 
 
 def validate(value, schema, location="arguments"):
@@ -133,6 +141,39 @@ class MemoryServer:
     def __init__(self, store):
         self.store = store
         self.initialized = False
+        self.enabled_tools()  # Refuse an invalid explicit profile before serving.
+
+    def tool_inventory(self):
+        """Adapters may extend this fixed inventory, never through model arguments."""
+        return TOOLS
+
+    def capability_groups(self):
+        return TOOL_CAPABILITIES
+
+    def enabled_tools(self):
+        groups = self.capability_groups()
+        inventory = self.tool_inventory()
+        known = {item[0] for item in inventory}
+        if len(known) != len(inventory) or set().union(*groups.values()) != known:
+            raise ValueError("Capability groups must cover the fixed tool inventory")
+        # Read the fixed private configuration on every call; an existing server
+        # must not ignore an operator's narrowed capability profile.
+        config = json.loads(self.store.config_path.read_text())
+        if "tool_capabilities" not in config:
+            return inventory  # Existing and fresh instances retain their tools.
+        selected = config["tool_capabilities"]
+        if not isinstance(selected, list) or any(not isinstance(group, str) for group in selected):
+            raise ValueError("tool_capabilities must be a list of configured capability groups")
+        if len(set(selected)) != len(selected) or set(selected) - set(groups):
+            raise ValueError("Unknown or duplicate configured tool capability")
+        allowed = set().union(*(groups[group] for group in selected)) if selected else set()
+        return [item for item in inventory if item[0] in allowed]
+
+    def validate_call(self, name, arguments):
+        available = {tool[0]: tool for tool in self.enabled_tools()}
+        if name not in available:
+            raise ValueError("Unknown or disabled tool")
+        validate(arguments, available[name][2])
 
     def _source(self, relative):
         if not relative or relative.startswith("/") or "\\" in relative or any(part in ("", ".", "..") or part.startswith(".") for part in relative.split("/")):
@@ -164,9 +205,7 @@ class MemoryServer:
         return {"results": page, "has_more": len(items) > limit, "next_cursor": page[-1]["bundle"] if page else cursor}
 
     def call_tool(self, name, arguments):
-        if name not in TOOL_MAP:
-            raise ValueError("Unknown tool")
-        validate(arguments, TOOL_MAP[name][1])
+        self.validate_call(name, arguments)
         if name == "glide_search":
             return self.store.search(**arguments)
         if name == "glide_get":
@@ -256,7 +295,11 @@ class MemoryServer:
         elif method == "tools/list":
             if set(params) - {"_meta"}:
                 return error_response(identifier, -32602, "Unexpected tools/list parameters")
-            result = {"tools": [{"name": name, "description": description, "inputSchema": schema, "annotations": {"readOnlyHint": readonly, "destructiveHint": False, "openWorldHint": False}} for name, description, schema, readonly in TOOLS]}
+            try:
+                available = self.enabled_tools()
+            except (ValueError, OSError) as exc:
+                return error_response(identifier, -32000, str(exc))
+            result = {"tools": [{"name": name, "description": description, "inputSchema": schema, "annotations": {"readOnlyHint": readonly, "destructiveHint": False, "openWorldHint": False}} for name, description, schema, readonly in available]}
         elif method == "tools/call":
             if set(params) - {"name", "arguments", "_meta"} or not isinstance(params.get("name"), str):
                 return error_response(identifier, -32602, "Invalid tools/call parameters")

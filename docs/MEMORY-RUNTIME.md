@@ -9,7 +9,7 @@ The designated writer, inside its existing lock, saves the affected rendered fil
 A rename combined with content edits, ambiguous filenames, an existing old path, a missing destination or unrelated edits requires immediate conversational review: show the exact mismatch, impact and proposed recovery. Do not silently accept it or report a vague save failure. Source freshness warnings remain distinct from bundle corruption; re-intake of a renamed source does not rewrite its history. Existing installations must explicitly upgrade to the pinned runtime. The Markdown-only adapter retains exact checks.
 
 
-Glide's optional memory runtime keeps durable memory in readable Markdown and builds a local SQLite search index. The current 0.1.0 build `83c6ad3a80a8` is supplied locally, with exact file hashes in the owner repository's `runtime/package-manifest.json` and a matching `compatibility.json` pin; do not describe it as an upstream published release without verifying that release. Original writing remains outside the agent's managed store. Existing installations do not change until explicitly upgraded.
+Glide's optional memory runtime keeps durable memory in readable Markdown and builds a local SQLite search index. The current 0.1.0 build `90331b72c53d` is supplied locally, with exact file hashes in the owner repository's `runtime/package-manifest.json` and a matching `compatibility.json` pin; do not describe it as an upstream published release without verifying that release. Original writing remains outside the agent's managed store. Existing installations do not change until explicitly upgraded.
 
 This repository owns the shared Python runtime in `runtime/glide_memory/`.
 
@@ -35,7 +35,7 @@ Original clippings remain available as examples and evidence. Processing metadat
 
 ## Runtime Interface
 
-The installed module is `glide_memory`. Run it with the matching local release directory on `PYTHONPATH`; keep the configuration path in private instance instructions. Install using the consuming distribution's required `--expected-build 83c6ad3a80a8` flag; a version label alone does not identify this package. The implemented command help is authoritative for argument details. The runtime provides initialization, proposals and application, search, record retrieval, history, changes, index rebuild, backup, verification and deliberate writer handover.
+The installed module is `glide_memory`. Run it with the matching local release directory on `PYTHONPATH`; keep the configuration path in private instance instructions. Install using the consuming distribution's required `--expected-build 90331b72c53d` flag; a version label alone does not identify this package. The implemented command help is authoritative for argument details. The runtime provides initialization, proposals and application, search, record retrieval, history, changes, index rebuild, backup, verification and deliberate writer handover.
 
 For a local CLI invocation (substitute verified local paths):
 
@@ -102,3 +102,17 @@ Fresh instances use `knowledge_review: manual` and `review_ui: text`. On upgrade
 `python -m glide_memory.review --config ... --proposal ...` renders the configured presentation; `--ui text|interactive` can override presentation for that review. Interactive question/adjust controls submit a conversation prompt; they do not apply a change. A review decision still needs the proposal ID, current expected revisions and actual writer receipt. Text fallback works without a UI bridge; mobile parity is not assumed.
 
 Job inputs return compact change descriptors and source counts. Use `glide_job_input_page(job_id, bundle, cursor, limit)` to page exact bundle details when needed (limit defaults to 20, maximum 50); do not load a whole imported archive into routine context. Newly indexed history is available source material, not a requirement to promote every old assertion into knowledge. Follow the review policy above when preparing job outputs. A checkpoint records actual processing, including explicitly pending proposals; it is not evidence that a proposal was applied.
+
+## Optional bounded record reads
+
+`glide_get` and CLI `get` retain complete-record behavior unless a body-window argument is supplied. Use `start_line`, `start_offset`, `max_lines` or `max_chars` for an explicit window; defaults are 120 lines and 8,000 Unicode characters, with maxima of 500 lines and 32,768 characters. Single enormous lines remain bounded. The response's `read_window` marks truncation and supplies exact recorded-time/revision continuations plus a complete-read fallback. Concatenating continuation bodies preserves the original body exactly. Optional `expected_revision` rejects a stale current read.
+
+Only the body is size-bounded; source, claim, time and graph metadata stays complete. This preserves support but may still produce a large response for a record with much evidence. A window is never a complete revision: both the broker schema and writer reject its `read_window` annotation in submitted records. Expand it before writing.
+
+## Optional MCP capability profiles
+
+The fixed private instance configuration may explicitly select `tool_capabilities`, a list drawn from `reader`, `writer`, `jobs`, `source_intake`, `native_capture` and `overlays`. Omission preserves the existing full tool surface; an empty list exposes no tools. Unknown, duplicate or malformed selections fail closed. Adapters may add a fixed named group, such as Obsidian's `project_progress`, alongside their fixed tools.
+
+The broker filters both advertisement and dispatch and re-reads the fixed configuration before each call, preventing stale clients from invoking a disabled tool. Reconnect after an operator changes a profile so clients refresh their tool catalog. This limits MCP capabilities, not the administrative CLI or filesystem; effective source protection and the user's existing authorization still apply. Configuration changes are deliberate operator choices, never model-supplied tool arguments. Existing installations do not acquire a narrower profile automatically.
+
+See [common policy ownership](CORE-CONTRACTS.md) for generated shared contracts and preserved domain/instance supplements.

@@ -41,6 +41,11 @@ def parser():
     get = sub.add_parser("get")
     get.add_argument("record_id")
     get.add_argument("--at")
+    get.add_argument("--expected-revision", type=int)
+    get.add_argument("--start-line", type=int)
+    get.add_argument("--start-offset", type=int)
+    get.add_argument("--max-lines", type=int)
+    get.add_argument("--max-chars", type=int)
     history = sub.add_parser("history")
     history.add_argument("record_id", nargs="?")
     changes = sub.add_parser("changes-since")
@@ -98,7 +103,9 @@ def main(argv=None):
                 case "search":
                     result = store.search(args.query, limit=args.limit, include_sources=not args.no_sources, kind=args.kind, valid_at=args.valid_at, recorded_at=args.recorded_at)
                 case "get":
-                    result = store.get(args.record_id, at=args.at)
+                    result = store.get(args.record_id, at=args.at, expected_revision=args.expected_revision,
+                                       start_line=args.start_line, start_offset=args.start_offset,
+                                       max_lines=args.max_lines, max_chars=args.max_chars)
                 case "history":
                     result = store.history(args.record_id)
                 case "changes-since":

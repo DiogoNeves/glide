@@ -18,7 +18,7 @@ The optional memory runtime stores durable records and complete revision history
 
 Reviews work in conversation. Text is the default; interactive reviews are optional and only report success after a real writer receipt. Optional automatic knowledge processing keeps its output marked as AI and unreviewed. It does not authorize external actions.
 
-The recorded local validation passed **139 runtime tests**, including recovery after deleting a disposable SQLite index. [Validation details](docs/VALIDATION.md) explain the checks, model screen and remaining field observations.
+The 3 October local validation ran **163 runtime tests: 162 passed and one host-boundary check skipped**, plus 30 helper/distribution tests and isolated package checks. [Validation details](docs/VALIDATION.md) explain the checks, model screen and remaining field observations.
 
 ## Get started
 
